@@ -1,0 +1,45 @@
+.w-97 { width: 97%;}
+.ms-25px { margin-left: 25px;}
+.drag-icon {
+    background-color: var(--color-4);
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    cursor: move;
+    opacity: .3;
+    transition: .2s all;
+    box-shadow: 1px 2.5px 9px .1px #b9b9b9;
+  }
+  .drag-icon:hover {
+    opacity: 1;
+  }
+  
+  // Mat-Accordion
+  .mat-panel-content {
+    display: grid;
+    grid-template-columns: 25px 97%;
+    align-items: center;
+  }
+  ::ng-deep .mat-expansion-panel-body {
+    padding: 0; /* Set padding to 0 */
+  }
+  
+  // 
+  /* Angular Re-arrange Accordion*/
+  .cdk-drag-preview {
+    border-radius: 0;
+    background-color: white;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  .cdk-drag-placeholder {
+    opacity: 0; //while dragging the old box will not be visible
+  }
+  .drag-boundary {
+    max-height: 60vh !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  // 

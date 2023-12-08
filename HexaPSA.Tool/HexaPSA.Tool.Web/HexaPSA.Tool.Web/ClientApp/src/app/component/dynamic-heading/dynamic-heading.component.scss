@@ -1,0 +1,9 @@
+.heading{
+    font-weight   : bold;
+    color         : var(--color-secondary) !important;
+    font-size     : 2rem;
+}
+@media (max-width: 768px)
+{
+    .heading { font-size: 5.5vw; }
+}

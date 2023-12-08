@@ -1,0 +1,155 @@
+<div class="container-fluid mt-1">
+  <div class="grid-row row-1">
+    <div class="grid-item">
+      <div class="row d-flex  pb-1 container heading-border">
+        <div class=" heading-text-grid">List of Project Estimations</div>
+        <button class="button-AddRole" (click)="openDialogTemplateRef()" title="Add Project"><i class="fa-solid fa-circle-plus"></i></button>
+      </div>
+      <!-- Angular Material Table  1-->
+      <!-- No Records -->
+      <!-- <div *ngIf="this.projectEstimations_length == 0">No Records Found</div> -->
+      <div class="mt-3">
+        <section class="table-container mat-elevation-z3" tabindex="0">
+          <div class="ps-2 pe-2" *ngIf="this.projectEstimations_length != 0">
+            <table mat-table #MatSort_1="matSort" [dataSource]="projectEstimations_data" matSort>
+
+              <!-- Project Name -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef class="mat-header-cell">
+                  <span mat-sort-header>
+                    <span *ngIf="!columnSearch()"><b>Project Name</b></span>
+                    <!-- Input when clicking search icon -->
+                    <span *ngIf="columnSearch()">
+                      <input type="text">
+                    </span>
+                  </span>
+                  <i class="fas fa-magnifying-glass fa-xs table-header-icon" (click)="columnSearch()"></i>
+                </th>
+                <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.name}} </td>
+              </ng-container>
+
+              <!-- Project Type -->
+              <ng-container matColumnDef="projectTypes">
+                <th mat-header-cell *matHeaderCellDef class="mat-header-cell">
+                  <span mat-sort-header><b>Project Type</b></span>
+                  <i class="fas fa-magnifying-glass fa-xs table-header-icon"></i>
+                </th>
+                <td mat-cell *matCellDef="let row"> {{row.projectTypes[0].name}} </td>
+              </ng-container>
+
+              <!-- Action -->
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let row" class="action-icons">
+                  <!-- Edit icon -->
+                  <i class="fa-solid fa-pen-to-square me-3 edit-delete-icon edit-icon"
+                     [class]="isHovered(row) ? 'partially-visible' : 'hide'" (click)="openDialogTemplateRef(row)"></i>
+                  <!-- Delete Icon -->
+                  <i class="far fa-trash-alt edit-delete-icon delete-icon"
+                     [class]="isHovered(row) ? 'partially-visible' : 'hide'" (click)="remove(row)"></i>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="projectEstimations_columns; sticky: true" class="mat-row-header"></tr>
+              <tr mat-row *matRowDef="let row; columns: projectEstimations_columns;" (click)="landingPage(row)" class="mat-row pointer"
+                  (mouseenter)="setHovered(row, true)"
+                  (mouseleave)="setHovered(row, false)"></tr>
+            </table>
+          </div>
+          <mat-paginator length="20" [pageSize]="30" aria-label="Select page of GitHub search results" class="mat-paginator"></mat-paginator>
+        </section>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="heading-text-grid pb-1">Project Estimation Graph</div>
+      <!-- Pie chart -->
+      <app-charts chartType="pie"></app-charts>
+    </div>
+  </div>
+  <div class="grid-row row-2">
+    <div class="grid-item">
+      <div class="heading-text-grid pb-1">Pick up where you left off...</div>
+      <!-- Angular Material Table  2-->
+      <section class="table-container mat-elevation-z3" tabindex="0">
+        <div class="ps-2 pe-2" *ngIf="this.recentActivities_length != 0">
+          <table mat-table #MatSort_2="matSort" [dataSource]="recentActivities_data" matSort>
+
+            <!-- Project Name -->
+            <ng-container matColumnDef="projectName">
+              <th mat-header-cell *matHeaderCellDef class="mat-header-cell"><b>Project Name</b></th>
+              <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.projectName}} </td>
+            </ng-container>
+
+            <!-- Activity -->
+            <ng-container matColumnDef="activity">
+              <th mat-header-cell *matHeaderCellDef class="mat-header-cell"><b>Activity</b></th>
+              <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.activity}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="CreatedDate">
+              <th mat-header-cell *matHeaderCellDef class="mat-header-cell"><b>Created Date</b></th>
+              <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.createdDate | date:'dd/MM/yyyy' }} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="recentActivities_columns; sticky: true" class="mat-row-header"></tr>
+            <tr mat-row *matRowDef="let row; columns: recentActivities_columns;" class="mat-row pointer"
+                (click)="recentActivites(row)" 
+                (mouseenter)="setHovered(row, true)"
+                (mouseleave)="setHovered(row, false)"></tr>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <div class="grid-item">
+      <div class="heading-text-grid pb-1">
+        <span> Recently Exported Files</span>
+      </div>
+        <!-- Angular Material Table  2-->
+        <section class="table-container mat-elevation-z3" tabindex="0">
+          <div class="ps-2 pe-2" *ngIf="this.recentActivities_length != 0">
+            <table mat-table #MatSort_2="matSort" [dataSource]="recentExported_data" matSort>
+
+              <!-- Project Name -->
+              <ng-container matColumnDef="projectName">
+                <th mat-header-cell *matHeaderCellDef class="mat-header-cell"><b>Project Name</b></th>
+                <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.projectName}} </td>
+              </ng-container>
+
+              <!-- Activity -->
+              <ng-container matColumnDef="Activity">
+                <th mat-header-cell *matHeaderCellDef class="mat-header-cell"><b>Activity</b></th>
+                <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.logActivity}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="CreatedDate">
+                <th mat-header-cell *matHeaderCellDef class="mat-header-cell"><b>Created Date</b></th>
+                <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.createdDate | date:'dd/MM/yyyy' }} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="recentExported_columns; sticky: true" class="mat-row-header"></tr>
+              <tr mat-row *matRowDef="let row; columns: recentExported_columns;" class="mat-row pointer"
+                  (mouseenter)="setHovered(row, true)"
+                  (mouseleave)="setHovered(row, false)"></tr>
+            </table>
+          </div>
+        </section>
+        <!-- Button toggle -->
+        <!-- <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="bold">Bold</mat-button-toggle>
+            <mat-button-toggle value="italic">Italic</mat-button-toggle>
+            <mat-button-toggle value="underline">Underline</mat-button-toggle>
+        </mat-button-toggle-group> -->
+     
+      <!--<div class="table-container">
+          <img src="../../../assets/underpro.jpg" alt="UnderProcess" class="centered-image" />
+      </div>-->
+    </div>
+
+    <div class="grid-item">
+      <div class="heading-text-grid pb-1">Achievements so far...</div>
+      <img src="../../../assets/underpro.jpg" alt="UnderProcess" class="centered-image" />
+    </div>
+  </div>
+</div>
+

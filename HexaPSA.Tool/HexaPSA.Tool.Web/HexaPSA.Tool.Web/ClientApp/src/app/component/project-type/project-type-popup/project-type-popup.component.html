@@ -1,0 +1,28 @@
+<div class="titile theme-new-1">
+  <h5 class="mt-2 p-1">Add Project Type</h5>
+  <i class="fa-regular fa-circle-xmark me-2 p-3 heading-icon" (click)="close()"></i>
+</div>
+<mat-progress-bar mode="indeterminate" class="progress"></mat-progress-bar>
+<div class="container-fluid mt-4 theme-1 theme-new-1">
+  <form [formGroup]="RoleForm">
+
+    <mat-form-field class="ms-2 me-2 mt-2">
+      <mat-label>
+        <i class="fas fa-list input-icon animate-ease-0_3"></i>
+        <span style="margin-left: 1rem;">Name</span>
+      </mat-label>
+      <input matInput class="input-2" name="name" formControlName="name" value=name required>
+    </mat-form-field>
+
+
+    <div style="display: flex; justify-content: center;" class="mt-4">
+      <button mat-raised-button class="white-color me-3 mb-3 action-btn"
+              [ngClass]="{'save-btn-1':RoleForm.valid,'disabled':!RoleForm.valid}"
+              (click)="submit()">
+        Save
+      </button>
+
+      <button mat-raised-button class="white-color cancel-btn-1 me-2 mb-3 action-btn" (click)="close()">Cancel</button>
+    </div>
+  </form>
+</div>

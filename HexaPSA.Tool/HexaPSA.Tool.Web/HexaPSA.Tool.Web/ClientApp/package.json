@@ -1,0 +1,59 @@
+{
+  "name": "presale",
+  "version": "1.0.0",
+  "description": "Hexacorp Pre sales Automation Tool",
+  "author": {
+    "name": "Hexacorp",
+    "email": "info@hexacorp.com",
+    "url": "https://www.hexacorp.com/about"
+  },
+  "scripts": {
+    "ng": "ng",
+    "prestart": "node aspnetcore-https",
+    "start": "run-script-os",
+    "start:windows": "ng serve --port 44450 --ssl --ssl-cert \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem\" --ssl-key \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.key\"",
+    "start:default": "ng serve --port 44450 --ssl --ssl-cert \"$HOME/.aspnet/https/${npm_package_name}.pem\" --ssl-key \"$HOME/.aspnet/https/${npm_package_name}.key\"",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/cdk": "^16.2.1",
+    "@angular/common": "^16.0.0",
+    "@angular/compiler": "^16.0.0",
+    "@angular/core": "^16.0.0",
+    "@angular/forms": "^16.0.0",
+    "@angular/localize": "^16.2.5",
+    "@angular/material": "^16.2.1",
+    "@angular/platform-browser": "^16.0.0",
+    "@angular/platform-browser-dynamic": "^16.0.0",
+    "@angular/router": "^16.0.0",
+    "@worktile/gantt": "^16.0.1",
+    "chart.js": "^4.4.0",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "date-fns": "^2.30.0",
+    "json-server": "^0.17.3",
+    "ng2-charts": "^5.0.3",
+    "ngx-pagination": "^6.0.3",
+    "ngx-toastr": "^16.0.0",
+    "run-script-os": "^1.1.6",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "xlsx": "^0.18.5",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.0.0",
+    "@angular/cli": "^16.0.0-next.0",
+    "@angular/compiler-cli": "^16.0.0",
+    "@types/jasmine": "~4.3.0",
+    "jasmine-core": "~4.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "typescript": "~5.0.2"
+  }
+}

@@ -1,0 +1,27 @@
+<!-- Pie chart -->
+<canvas baseChart *ngIf="chartType == 'pie'"
+    [type]="'pie'"
+    [datasets]="pieChartDatasets"
+    [labels]="pieChartLabels"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+</canvas>
+
+<!-- Bar Chart -->
+<canvas baseChart *ngIf="chartType == 'bar'"
+    [data]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [legend]="barChartLegend"
+    [type]="barChartType">
+</canvas>
+
+<!-- Gantt Chart -->
+<canvas baseChart *ngIf="chartType == 'gantt'"
+    [data]="ganttChartData"
+    [labels]="ganttChartLabels"
+    [options]="ganttChartOptions"
+    [legend]="ganttChartLegend"
+    [type]="ganttChartType">
+</canvas>

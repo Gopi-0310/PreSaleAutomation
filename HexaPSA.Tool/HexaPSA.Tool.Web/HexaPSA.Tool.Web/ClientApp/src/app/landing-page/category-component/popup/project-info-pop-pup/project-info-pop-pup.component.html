@@ -1,0 +1,113 @@
+<div class="titile theme-new-1">
+    <!-- <i class="fa-regular fa-circle-check ms-3 p-3 heading-icon"></i> -->
+    <h5 class="mt-2 p-1 mx-2">Edit Project Info</h5>
+    <!-- <i class="fa-solid fa-xmark  me-3 p-3 heading-icon" (click)="close()"></i> -->
+    <i class="fa-regular fa-circle-xmark me-2 p-3 heading-icon check" (click)="close()"></i>
+</div>
+<div class="container-fluid mt-4 theme-1 theme-new-1">
+    <!--Effort Estimation Page Form Start ........................................-->
+    <!--Effort Estimation Page Form Start ........................................-->
+    <form [formGroup]="estimatedForm">
+        <!--Project Name-->
+        <mat-form-field class="ms-2 mt-1">
+            <mat-label for="projectName">Project Name</mat-label>
+            <input type="text" id="projectName" name="projectName" placeholder="presale.example" aria-label="Text"
+                matInput formControlName="name" autocomplete="off">
+        </mat-form-field>
+        <!--Project Type-->
+        <mat-form-field class="ms-2">
+            <mat-label for="projectType">Project Type</mat-label>
+            <mat-select formControlName="projectTypeId" id="projectType" name="projectType">
+                <mat-option *ngFor="let item of projectTypeList" [value]="item.id">
+                    {{item.name}}
+                </mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <!-- adding new technology input -->
+        <mat-form-field class="tech-form">
+            <!-- <mat-label>Technology</mat-label> -->
+            <mat-chip-grid #chipGrid aria-label="Enter keywords" [formControl]="technology">
+                <mat-chip-row *ngFor="let keyword of technologyList" (removed)="removeKeyword(keyword)">
+                    {{keyword.name}}
+                    <button matChipRemove aria-label="'remove ' + keyword">
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-chip-row>
+            </mat-chip-grid>
+            <input placeholder="Technology..." [matChipInputFor]="chipGrid" (matChipInputTokenEnd)="add($event)" />
+        </mat-form-field>
+
+        <!--Start date and End Date -->
+        <mat-form-field class="example-form-field">
+            <mat-label for="date"> Start Date - End Date</mat-label>
+            <mat-date-range-input [rangePicker]="campaignOnePicker">
+                <input matStartDate placeholder="Start date" id="startDate" name="startDate"
+                    formControlName="effectiveStartDate" class="startDate" autocomplete="off">
+                <input matEndDate placeholder="End date" id="endDate" name="endDate" formControlName="effectiveEndDate"
+                    class="endDate" autocomplete="off">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+            <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+        </mat-form-field>
+        <!--Mat Accordion..........-->
+        <mat-accordion>
+            <!--In pregress.........-->
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                [expanded]="expanded_accordion" #openAcc>
+                <mat-expansion-panel-header
+                    [class]="openAcc.expanded?'mat-expansion-panel-header1':'mat-expansion-panel-header2'">
+                    <mat-panel-title
+                        [class]="openAcc.expanded?'mat-expansion-panel-header-title2':'mat-expansion-panel-header-title1'">
+                        <span>Estimated By</span>
+                    </mat-panel-title>
+                    <!-- <i class="fas float-right caret-icon animate-ease-0_3 mt-2 fa-caret-down"></i> -->
+                </mat-expansion-panel-header>
+                <div formArrayName="estimatedUsers" class="mt-3 hide-scrollbar"
+                    style="max-height: 120px; overflow-y: auto;">
+                    <div class="array-Form mt-1" *ngFor="let estimate of estimatedUsers.controls; let i = index"
+                        [formGroupName]="i">
+
+                        <mat-form-field class="add-user ps-2">
+                            <mat-label for="addUser">Add User</mat-label>
+                            <mat-select formControlName="userId" id="userName" name="userName">
+                                <mat-option *ngFor="let user of userList" [value]="user.id">
+                                    {{user.userName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="add-role ps-2">
+                            <mat-label for="roles">Role</mat-label>
+                            <mat-select formControlName="roleId" id="roles" name="roles">
+                                <mat-option *ngFor="let role of roleList" [value]="role.id">
+                                    {{role.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <i *ngIf="estimatedUsers.length>1" class="fas fa-delete-left remove-icon  mt-3  ms-4 col-md-1"
+                            (click)="removePlayer(i)"></i>
+                    </div>
+                    <button mat-raised-button class="white-color me-3 mb-3 ms-2"
+                        [ngClass]="{'save-btn-1':this.estimatedUsers.valid,'disabled':!this.estimatedUsers.valid}"
+                        (click)="addAnotherUser()">
+                        Add User
+                    </button>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </form>
+    <div style="display: flex; justify-content: center;" class="mt-3">
+        <button mat-raised-button class="white-color me-3 mb-3"
+            [ngClass]="{'save-btn-1':estimatedForm.valid,'disabled':!estimatedForm.valid}" (click)="submit('Save')">
+            Save
+        </button>
+        <button mat-raised-button class="white-color me-3 mb-3 "
+            [ngClass]="{'draft-btn-1':estimatedForm.valid,'disabled':!estimatedForm.valid}" (click)="submit('Draft')">
+            Draft
+        </button>
+        <button mat-raised-button class="white-color cancel-btn-1 me-2 mb-3" (click)="close()">Cancel</button>
+    </div>
+    <!--Effort Estimation Page Form End ........................................-->
+</div>
+<!--Effort Estimation Page Form End ........................................-->

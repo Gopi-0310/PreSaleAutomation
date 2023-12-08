@@ -1,0 +1,179 @@
+<div class="container-fluid mt-1" >
+  <!-- Breadcrumb -->
+  <div class="mb-1 custom-breadcrumb">
+    <i class="fas fa-house breadcrumb-icon breadcrumb-text" routerLink=""></i> /
+    <span class="breadcrumb-text breadcrumb-selected"> {{this.project.projectName}}</span>
+  </div>
+  <!-- Layout -->
+  <div class="grid-row">
+    <!-- Left Containter -->
+    <div class="grid-item left-card">
+      <div class="heading-text-grid pb-1 ">Project Management</div>
+      <!-- style="background-color: green; position: sticky; top: 0; z-index: 5;" -->
+      <div class="project-management">
+        <!-- Capacity Utilization -->
+        <div class="project-item-card full-card capacity-util">
+          <!-- 3 dots -->
+          <i class="fa-solid fa-ellipsis three-dots"></i>
+          <div class="project-item-content p-4"  (click)="pageNavigate('Capacity Utilization')">
+            <div class="left-card-item">
+              <i class="fa-solid fa-users-between-lines color-completed card-icon"></i>
+              <span class="card-text">Capacity <br> Utilization</span>
+            </div>
+            <div class="right-card-item bar-chart-container">
+              <!-- Bar chart -->
+              <app-charts chartType = "bar"></app-charts>
+            </div>
+            <span class="curved-box color-completed-bg"></span>
+            <i class="fa-solid fa-circle-check fa-xl color-completed curved-box-icon"></i>
+          </div>
+        </div>
+        <!-- Effort Estimation -->
+        <div class="project-item-card full-card">
+          <!-- 3 dots -->
+          <i class="fa-solid fa-ellipsis three-dots"></i>
+          <div class="project-item-content p-4" (click)="pageNavigate('Effort Estimation')">
+            <div class="left-card-item">
+              <i class="fa-solid fa-square-poll-vertical color-on-hold card-icon-2"></i>
+              <span class="card-text">Effort <br> Estimation</span>
+            </div>
+            <div class="right-effort-estimation color-on-hold">
+              <!-- right content -->
+              <div class="display display_hours">
+                <span class="display_text">{{this.totalWeeksAndHours.hours}}</span>
+                <br>
+                <span>Hours</span>
+              </div>
+              <div class="display display_weeks">
+                <span class="display_text">{{this.totalWeeksAndHours.week}}</span>
+                <br>
+                <span>Weeks</span>
+              </div>
+              <div class="display display_workstream">
+                <span class="display_text">{{this.totalHoursAndCost?.rate}}</span>
+                <br>
+                <span>CostByEstimation</span>
+              </div>
+            </div>
+            <span class="curved-box color-on-hold-bg"></span>
+            <i class="fa-solid fa-rectangle-list fa-xl color-on-hold curved-box-icon"></i>
+          </div>
+        </div>
+        <!-- Create SOW -->
+        <div class="project-item-card half-card">
+          <!-- 3 dots -->
+          <i class="fa-solid fa-ellipsis three-dots"></i>
+          <div class="project-item-content p-4" (click)="pageNavigate('Create Satement Of Work')">
+            <div class="left-card-item">
+              <i class="fa-solid fa-file-invoice color-in-progress card-icon-2"></i>
+              <span class="card-text">Create <br> SOW</span>
+            </div>
+            <div class="right-card-item">
+              <!-- todo -->
+              <!-- right content -->
+            </div>
+            <span class="curved-box color-in-progress-bg"></span>
+            <i class="fa-solid fa-bars-progress fa-xl color-in-progress curved-box-icon"></i>
+          </div>
+        </div>
+        <!-- Cost Summary -->
+        <div class="project-item-card half-card">
+          <!-- 3 dots -->
+          <i class="fa-solid fa-ellipsis three-dots"></i>
+          <div class="project-item-content p-4" (click)="pageNavigate('View & Export Artifacts')">
+            <div class="left-card-item">
+              <i class="fa-solid fa-file-arrow-down card-primary card-icon-2"></i>
+              <span class="card-text">Cost <br> Summary</span>
+            </div>
+          </div>
+        </div>
+        <!-- Team Configuration -->
+        <div class="project-item-card half-card">
+          <!-- 3 dots -->
+          <i class="fa-solid fa-ellipsis three-dots"></i>
+          <div class="project-item-content p-4" (click)="pageNavigate('Team Configuration')">
+            <div class="left-card-item">
+              <i class="fa-solid fa-file-arrow-down card-primary card-icon-2"></i>
+              <span class="card-text">Team <br> Configuration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Right container -->
+    <div class="right-card">
+      <!-- Top right -->
+      <div class="grid-item template-row">
+        <div class="heading-text-grid pb-1">Project Information <i class="fa-solid fa-pen-to-square editIcon"
+          (click)="openDialogTemplateRef()"></i></div>
+        
+        <div class="project-information-container">
+          <div class="project-information-item ps-2 pe-2 mt-2" *ngIf="loading">
+            <table>
+              <tr>
+                <td class="column-header">Project Name </td>
+                <td class="table-value">: {{navigationData.name}}</td>
+              </tr>
+              <tr>
+                <td class="column-header">Technologies Used </td>
+                <td class="table-value">
+                  :<span *ngFor="let tech of navigationData.technology; let last = last"> {{tech.name}}{{ !last ? ',' : '.' }}</span>
+                </td>
+              </tr>
+              <!-- <tr>
+            <td class="column-header">Project Type </td>
+            <td class="table-value">: {{ navigationData.projectTypes[0].name}}</td>
+          </tr> -->
+              <tr>
+                <td class="column-header">Project Duration </td>
+                <td class="table-value">: {{ navigationData.effectiveStartDate | timeDifference:navigationData.effectiveEndDate:'week-days' }}</td>
+              </tr>
+              <tr>
+                <td class="column-header">Start Date </td>
+                <td class="table-value">: {{ navigationData.effectiveStartDate | date}}</td>
+              </tr>
+              <tr>
+                <td class="column-header">End Date </td>
+                <td class="table-value">: {{ navigationData.effectiveEndDate | date}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="project-information-item mt-2">
+            <div class="heading-text-grid pb-1 ms-2 me-2">Estimated By</div> 
+            
+             <section class="table-container " tabindex="0">
+              <div class="ps-2 pe-2" *ngIf="this.estimatedBy_length != 0">
+                <table mat-table #MatSort_2="matSort" [dataSource]="estimatedBy_data" matSort>
+                  <ng-container matColumnDef="userName">
+                    <th mat-header-cell *matHeaderCellDef class="mat-header-cell"><b>User</b></th>
+                    <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.user.fullName}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="roles">
+                    <th mat-header-cell *matHeaderCellDef class="mat-header-cell"><b>Role</b></th>
+                    <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.role.name}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="estimatedBy_columns; sticky: true" class="mat-row-header"></tr>
+                  <tr mat-row *matRowDef="let row; columns: estimatedBy_columns;" class="mat-row-2"></tr>
+                </table>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom right -->
+
+      <div class="grid-item right-upper-card effort-estimation-card">
+        <div class="heading-text-grid pb-1">Effort Estimation Chart</div>
+        <div class="gantt-chart-container">
+          <!-- Gantt Chart -->
+          <app-charts chartType="gantt"></app-charts>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

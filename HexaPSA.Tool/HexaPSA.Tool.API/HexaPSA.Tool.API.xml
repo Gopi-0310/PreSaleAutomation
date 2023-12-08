@@ -1,0 +1,511 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HexaPSA.Tool.API</name>
+    </assembly>
+    <members>
+        <member name="T:HexaPSA.Tool.API.Controllers.ActivityLogController">
+            <summary>
+            ActivityLog
+            </summary>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ActivityLogController.#ctor(MediatR.ISender,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.ActivityLogController"/> class.
+            </summary>
+            <param name="sender"></param>
+             /// <param name="mapper"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ActivityLogController.GetRecentExportAcitivity(System.Threading.CancellationToken)">
+            <summary>
+            Gets all of Recent Export Acivities
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The collection Recent Export Acivities Data.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ActivityLogController.GetRecentAcitivity(System.Threading.CancellationToken)">
+            <summary>
+            Gets all of Recent Acivities
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The collection Recent Acivities Data.</returns>
+        </member>
+        <member name="T:HexaPSA.Tool.API.Controllers.CapacityUtilizationController">
+            <summary>
+            CapacityUtilization
+            </summary>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.CapacityUtilizationController.#ctor(MediatR.ISender,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.CapacityUtilizationController"/> class.
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.CapacityUtilizationController.GetById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the project detail and role details and capacity details with the specified identifier, if it exists.
+            </summary>
+            <param name="id">The capacity identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The capacityUtilization with the specified identifier, if it exists.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.CapacityUtilizationController.GetAllCapacityUtilization(System.Threading.CancellationToken)">
+            <summary>
+            Gets all of CapacityUtilization
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The collection Capacity Data.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:HexaPSA.Tool.API.Controllers.CapacityUtilizationController.CreateCapacityUtilization(HexaPSA.Tool.Application.Handlers.Commands.CapacityUtilizationsCommands.CreateCapacityUtilizationRequest,System.Threading.CancellationToken)" -->
+        <member name="M:HexaPSA.Tool.API.Controllers.CapacityUtilizationController.UpdateCapacityUtilization(System.Guid,HexaPSA.Tool.Application.Handlers.Commands.CapacityUtilizationCommands.UpdateCapacityUtilizationRequest,System.Threading.CancellationToken)">
+            <summary>
+            Update Capacity on the specified request.
+            </summary>
+            <param name="request">The Update Capacity request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The Updated Capacity.</returns>
+            
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.CapacityUtilizationController.DeleteCapacityUtilization(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a CapacityUtilization record with the specified identifier.
+            </summary>
+            <param name="id">The identifier of the CapacityUtilization to delete.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content if the CapacityUtilization  was successfully deleted, or a not found response if the record does not exist.</returns>
+        </member>
+        <member name="T:HexaPSA.Tool.API.Controllers.CostByResourceController">
+            <summary>
+            CostByResourceController
+            </summary>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.CostByResourceController.#ctor(MediatR.ISender,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.CostByResourceController"/> class.
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.CostByResourceController.GetCostByResourceById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the costByResource with the specified identifier, if it exists.
+            </summary>
+            <param name="id">The costByResource identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The costByResource with the specified identifier</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ExportController.#ctor(MediatR.ISender,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.ExportController"/> class.
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ExportController.LOE(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Export to LOE
+            </summary>
+            <param name="id"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ExportController.CostByResource(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Export to LOE
+            </summary>
+            <param name="id"></param>
+            <param name="cancellationToken"></param>
+            <returns>Total CostByResource weeks and hours and cost</returns>
+        </member>
+        <member name="T:HexaPSA.Tool.API.Controllers.PresalesTimeTrackerController">
+            <summary>
+            The PresalesTimeTrackerController controller.
+            </summary>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.PresalesTimeTrackerController.#ctor(MediatR.ISender,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.RoleController"/> class.
+            </summary>
+            <param name="sender"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.PresalesTimeTrackerController.GetAllPresalesTimeTrackers(System.Threading.CancellationToken)">
+            <summary>
+            Gets all of the PresalesTimeTracker.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The collection of PresalesTimeTracker.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.PresalesTimeTrackerController.GetPresalesTimeTrackerById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the project type with the specified identifier, if it exists.
+            </summary>
+            <param name="id">The project type identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The project type with the specified identifier, if it exists.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.PresalesTimeTrackerController.CreatePresalesTimeTracker(CreatePresalesTimeTrackerHandler.CreatePresalesTimeTrackerRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new project type based on the specified request.
+            </summary>
+            <param name="request">The create project type request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created project type.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.PresalesTimeTrackerController.UpdatePresalesTimeTracker(System.Guid,HexaPSA.Tool.Application.Handlers.Commands.PresaleTimeTrakerCommands.UpdatePresalesTimeTrackerRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new PresalesTimeTracker record based on the specified request.
+            </summary>
+            <param name="request">The create PresalesTimeTracker request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created PresalesTimeTracker record.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.PresalesTimeTrackerController.DeletePresalesTimeTracker(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a PresalesTimeTracker record with the specified identifier.
+            </summary>
+            <param name="id">The identifier of the PresalesTimeTracker to delete.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content if the PresalesTimeTracker was successfully deleted, or a not found response if the record does not exist.</returns>
+        </member>
+        <member name="T:HexaPSA.Tool.API.Controllers.ProjectsController">
+            <summary>
+            The Projects controller.
+            </summary>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ProjectsController.#ctor(MediatR.ISender,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.ProjectsController"/> class.
+            </summary>
+            <param name="sender"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ProjectsController.GetAllProject(System.Threading.CancellationToken)">
+            <summary>
+            Retrieves all projects.
+            </summary>
+            <param name="cancellationToken">A token to cancel the operation.</param>
+            <returns>
+            A list of projects or a Not Found response if no projects are found.
+            </returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ProjectsController.GetProjectById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.ProjectsController"/>
+            </summary>
+        </member>
+        <member name="T:HexaPSA.Tool.API.Controllers.ProjectTypeContrller">
+            <summary>
+            The Projects controller.
+            </summary>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ProjectTypeContrller.#ctor(MediatR.ISender,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.ProjectTypeContrller"/> class.
+            </summary>
+            <param name="sender"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ProjectTypeContrller.GetProjectTypes(System.Threading.CancellationToken)">
+            <summary>
+            Gets all of the project types.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The collection of project types.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ProjectTypeContrller.GetProjectTypeById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the project type with the specified identifier, if it exists.
+            </summary>
+            <param name="id">The project type identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The project type with the specified identifier, if it exists.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ProjectTypeContrller.CreateProjectType(HexaPSA.Tool.Application.Handlers.Commands.CreateProjectTypeCommands.CreateProjectTypeRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new project type based on the specified request.
+            </summary>
+            <param name="request">The create project type request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created project type.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ProjectTypeContrller.DeleteProjectType(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a ProjectType record with the specified identifier.
+            </summary>
+            <param name="id">The identifier of the ProjectType to delete.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content if the ProjectType was successfully deleted, or a not found response if the record does not exist.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ProjectTypeContrller.UpdateProjectType(System.Guid,HexaPSA.Tool.Application.Handlers.Commands.CreateProjectTypeCommands.UpdateProjectTypeRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new ProjectType record based on the specified request.
+            </summary>
+            <param name="id">The ID of the ProjectType to update.</param>
+            <param name="request">The create ProjectType request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created ProjectType record.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ResourceRateCardController.#ctor(MediatR.ISender,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.ResourceRateCardController"/> class.
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ResourceRateCardController.GetRateCardById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the ResourceRateCard with the specified identifier, if it exists.
+            </summary>
+            <param name="id">The RateCard identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The RateCard with the specified identifier</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ResourceRateCardController.GetAllRateCard(System.Threading.CancellationToken)">
+            <summary>
+            Gets all of the  RateCard.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The collection of RateCard Details.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ResourceRateCardController.CreateRateCard(HexaPSA.Tool.Application.Handlers.Commands.ResourceRateCommands.CreateResourceRateCardRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new  RateCard based on the specified request.
+            </summary>
+            <param name="request">The create  RateCard request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created  RateCard.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ResourceRateCardController.UpdateResourceRateCard(System.Guid,HexaPSA.Tool.Application.Handlers.Commands.ResourceRateCommands.UpdateResourceRateCardRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new RateCard record based on the specified request.
+            </summary>
+            <param name="request">The create RateCard request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created RateCard record.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.ResourceRateCardController.DeleteResourceRate(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a ResourceRateCard record with the specified identifier.
+            </summary>
+            <param name="id">The identifier of the ResourceRateCard to delete.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content if the ResourceRateCard was successfully deleted, or a not found response if the record does not exist.</returns>
+        </member>
+        <member name="T:HexaPSA.Tool.API.Controllers.RoleController">
+            <summary>
+            The RoleController controller.
+            </summary>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.RoleController.#ctor(MediatR.ISender,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.RoleController"/> class.
+            </summary>
+            <param name="sender"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.RoleController.GetRoleById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the project type with the specified identifier, if it exists.
+            </summary>
+            <param name="id">The project type identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The project type with the specified identifier, if it exists.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.RoleController.GetAllRoles(System.Threading.CancellationToken)">
+            <summary>
+            Gets all of the Role.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The collection of Role.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.RoleController.CreateRole(HexaPSA.Tool.Application.Handlers.Commands.RoleCommands.CreateRoleRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new project type based on the specified request.
+            </summary>
+            <param name="request">The create project type request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created project type.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.RoleController.UpdateRole(System.Guid,HexaPSA.Tool.Application.Handlers.Commands.RoleCommands.UpdateRoleRequest,System.Threading.CancellationToken)">
+            <summary>
+            Updates an existing Role with the specified ID.
+            </summary>
+            <param name="id">The ID of the Role to update.</param>
+            <param name="request">The updated Role information.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content if the update is successful, or a not found response if the Role does not exist.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.RoleController.DeleteRole(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a Role with the specified ID.
+            </summary>
+            <param name="id">The ID of the Role to delete.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content if the deletion is successful, or a not found response if the Role does not exist.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.TeamConfigurationController.GetById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the TeamConfiguration detail Role details and Role details with the specified identifier, if it exists.
+            </summary>
+            <param name="id">The teamConfigurations identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The teamConfigurations with the specified identifier, if it exists.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.TechnologyController.DeleteWorkTechnology(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a Technology record with the specified identifier.
+            </summary>
+            <param name="id">The identifier of the Technology to delete.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content if the Technology was successfully deleted, or a not found response if the record does not exist.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.TechnologyController.UpdateTechnology(System.Guid,HexaPSA.Tool.Application.Handlers.Commands.TechnologyCommands.UpdateTechnologyRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new Technology record based on the specified request.
+            </summary>
+            <param name="id">The ID of the technology to update.</param>
+            <param name="request">The create technology request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created technology record.</returns>
+        </member>
+        <member name="T:HexaPSA.Tool.API.Controllers.UserLoginController">
+            <Summary>
+             UserLoginController
+            </Summary>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.UserLoginController.#ctor(MediatR.ISender,AutoMapper.IMapper,HexaPSA.Tool.Notifications.IEmailService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.UserLoginController"/> class.
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.UserLoginController.CreateUserLogin(CreateUserLoginHandler.CreateUserLoginRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new  User Login based on the specified request.
+            </summary>
+            <param name="request">The create User Login request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created User Login.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.UserLoginController.GetUserLoginById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the  User Login details with the specified identifier, if it exists.
+            </summary>
+            <param name="id">The capacity identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The capacityUtilization with the specified identifier, if it exists.</returns>
+        </member>
+        <member name="T:HexaPSA.Tool.API.Controllers.WorkStreamActivityController">
+            <summary>
+            Workstream controller
+            </summary>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamActivityController.#ctor(MediatR.ISender,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.WorkStreamActivityController"/> class.
+            </summary>
+            <param name="sender"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamActivityController.CreateWorkStreamActivity(HexaPSA.Tool.Application.Handlers.Commands.WorkStreamActivityCommands.CreateWorkStreamActivityRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new  Workstream based on the specified request.
+            </summary>
+            <param name="request">The create  Workstream request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created  Workstream.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamActivityController.GetAllWorkStreamActivity(System.Threading.CancellationToken)">
+            <summary>
+            Gets all of the  WorkstreamActivity.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The collection of WorkstreamActivity Details.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamActivityController.GetWorkStreamActivityById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the WorkstreamActivity with the specified identifier, if it exists.
+            </summary>
+            <param name="id">The Workstream identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The WorkstreamActivity with the specified identifier</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamActivityController.DeleteWorkStreamActivity(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a WorkstreamActivity record with the specified identifier.
+            </summary>
+            <param name="id">The identifier of the Workstream to delete.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content if the WorkstreamActivity was successfully deleted, or a not found response if the record does not exist.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamActivityController.UpdateWorkStream(System.Guid,HexaPSA.Tool.Application.Handlers.Commands.WorkStreamCommands.UpdateWorkStreamActivityRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new WorkstreamActivity record based on the specified request.
+            </summary>
+            <param name="id">The ID of the workstreamActivity to update.</param>
+            <param name="request">The create Workstream request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created WorkstreamActivity record.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamActivityController.GetWorkStreamWeeksById(System.Guid,System.Threading.CancellationToken)">
+             <summary>
+            Get The WorkStream Data using fo displaying Charts
+             </summary>
+             <param name="id">The Workstream identifier.</param>
+             <param name="cancellationToken">The cancellation token.</param>
+             <returns>The WorkstreamWeeks datas with the specified identifier</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamController.#ctor(MediatR.ISender,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HexaPSA.Tool.API.Controllers.WorkStreamController"/> class.
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamController.GetWorkStreamById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the Workstream with the specified identifier, if it exists.
+            </summary>
+            <param name="id">The Workstream identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The Workstream with the specified identifier</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamController.GetTotalWeekById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the Workstream Hours and week with the specified identifier, if it exists.
+            </summary>
+            <param name="id">The Workstream identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The Workstream with the specified identifier</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamController.GetAllWorkStream(System.Threading.CancellationToken)">
+            <summary>
+            Gets all of the  Workstream.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The collection of Workstream Details.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamController.CreateWorkStream(HexaPSA.Tool.Application.Handlers.Commands.WorkStreamCommands.CreateWorkStreamRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new  Workstream based on the specified request.
+            </summary>
+            <param name="request">The create  Workstream request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created  Workstream.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamController.UpdateWorkStream(System.Guid,HexaPSA.Tool.Application.Handlers.Commands.WorkStreamCommands.UpdateWorkStreamRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new Workstream record based on the specified request.
+            </summary>
+            <param name="id">The ID of the workstream to update.</param>
+            <param name="request">The create Workstream request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created Workstream record.</returns>
+        </member>
+        <member name="M:HexaPSA.Tool.API.Controllers.WorkStreamController.DeleteWorkStream(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a Workstream record with the specified identifier.
+            </summary>
+            <param name="id">The identifier of the Workstream to delete.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content if the Workstream was successfully deleted, or a not found response if the record does not exist.</returns>
+        </member>
+    </members>
+</doc>

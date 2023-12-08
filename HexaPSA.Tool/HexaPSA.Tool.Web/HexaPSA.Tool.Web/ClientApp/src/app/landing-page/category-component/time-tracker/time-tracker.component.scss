@@ -1,0 +1,69 @@
+.table-container {
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+.grid-item {
+  background-color: var(--color-light);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 15px;
+  padding: 10px;
+  //overflow-x:auto;
+  height: 82vh;
+  position: relative;
+}
+
+
+.mat-header-cell:hover .table-header-icon {
+  opacity: 1;
+}
+
+.mat-row-header {
+  height: 30px;
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+}
+
+.mat-row {
+  height: 40px;
+}
+
+.table-header-icon {
+  opacity: 0;
+  position: relative;
+  bottom: 10px;
+  float: right;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  color: var(--color-text-primary);
+}
+
+.table-header-icon:hover {
+  color: var(--color-primary);
+}
+
+::webkit-autofill {
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .grid-row {
+    grid-template-columns: 100%;
+    height: 500px;
+  }
+}
+
+.button-AddRole {
+  /*position: absolute;
+  top: 6px;
+  right: 10px;*/
+  background-color: var(--color-primary);
+  border-radius: 6px;
+  border: none;
+  color: var(--color-light);
+}
+
+.plus-icon:hover {
+  rotate: 225deg;
+  transition: rotate 1s;
+}

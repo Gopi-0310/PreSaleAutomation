@@ -1,0 +1,195 @@
+.proj-title {
+  color: var(--color-secondary);
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.weeksNHours {
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.add_Workstream {
+  display: grid;
+  grid-template-columns: 30% auto;
+  align-items: end;
+}
+
+.addAnimation {
+  rotate: 225deg;
+  transition: rotate 1s;
+}
+
+.cancelAnimation {
+  rotate: -180deg;
+  transition: rotate 1s;
+}
+//Icons
+.circle-icon {
+  color: var(--color-4);
+}
+
+.right-arrow-up {
+  color: var(--color-14);
+}
+
+.right-arrow-up:hover {
+  color: var(--color-1);
+  cursor: pointer;
+}
+
+// Mat-Accordion
+.accordion {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0; /* Set padding to 0 */
+}
+
+.acc-button {
+  background: transparent;
+  border: none;
+}
+
+.acc-text {
+  color: #d80707;
+  font-size: 20px;
+}
+
+.add-text {
+  color: #00BF96;
+  font-size: 20px;
+}
+
+//Inner forms
+.acc-details-box {
+  display: flex;
+}
+
+/* Input Type .........................*/
+.input-line {
+  height: 35px;
+  position: relative;
+  box-shadow: rgba(61, 28, 155, 0.3) 0px 1px 2px 0px, rgba(64, 24, 158, 0.15) 0px 2px 6px 2px;
+  margin-left: 1rem;
+  border-radius:5px !important;
+}
+
+.input-line input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  /*border-bottom: 2px solid silver;*/
+  padding-left: 0.4rem;
+}
+
+.input-line label {
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  pointer-events: none;
+}
+
+.input-line input:focus {
+  outline: none;
+}
+
+/* Input Type - 1 */
+.input-1:focus ~ label,
+.input-1:valid ~ label {
+  transform: translate(-7px, 20px);
+  scale: 0.75;
+}
+
+/* Input Type - 2 */
+.input-2:focus ~ label,
+.input-2:valid ~ label {
+  transform: translate(1px, -34px);
+  scale: 0.75;
+}
+
+.input-2:valid ~ label .input-icon,
+.input-2:focus ~ label .input-icon {
+  opacity: 0;
+}
+
+.dropdown {
+  margin-right: 1rem;
+}
+
+.tech {
+  width: 5rem;
+}
+
+.activity {
+  width: 18rem;
+}
+
+.assignTo {
+  max-width: 100%;
+}
+
+.dep {
+  max-width: 100;
+}
+
+a {
+  text-decoration: none !important;
+  color: var(--color-5) !important;
+}
+
+.remove-icon {
+  color: var(--color-8);
+  font-size: 1.5rem;
+}
+
+/* End Of the Input ................................*/
+
+.dropdown-toggle {
+  width: 100%;
+  height: 35px;
+  margin-left: 1rem;
+  box-shadow: rgba(74, 39, 155, 0.3) 0px 1px 2px 0px, rgba(56, 27, 138, 0.15) 0px 2px 6px 2px;
+  font-size: 0.7rem !important;
+}
+
+.dropdown-item {
+  font-size: 0.7rem;
+  color: var(--color-2) !important;
+}
+
+.input-line {
+  margin-top: 0px !important;
+  margin-bottom: 5px;
+}
+
+li {
+  list-style: none !important;
+}
+
+.mat-mdc-form-field {
+  height: 59px;
+  /*top: 10px;*/
+  position: relative;
+  width:100%;
+}
+
+.custom-btn-1 {
+  background-color: var(--color-primary) !important;
+  border-radius: 5px !important;
+  color: #fff;
+  font-weight: bold;
+  position: relative;
+  top: 3px;
+}
+
+.input-line input:valid:not(:focus) {
+  box-shadow: 1.95px px 1.95px 2.6px var(--color-secondary) !important;
+}
+
+
+
+

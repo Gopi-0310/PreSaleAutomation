@@ -1,0 +1,86 @@
+<div class="titile theme-new-1">
+  <!-- <i class="fa-regular fa-circle-check ms-3 p-3 heading-icon"></i> -->
+  <h5 class="mt-2 p-1">Capacity Utilization</h5>
+  <!-- <i class="fa-solid fa-xmark  me-3 p-3 heading-icon" (click)="close()"></i> -->
+  <i class="fa-regular fa-circle-xmark me-2 p-3 heading-icon" (click)="close()"></i>
+</div>
+<mat-progress-bar mode="indeterminate" class="progress"></mat-progress-bar>
+<div class="container-fluid mt-4 theme-1 theme-new-1">
+  <!--Resource rate card pop-pup Form Start.....................-->
+  <form [formGroup]="CapacityUtilizationForm">
+
+    <mat-form-field class="ms-2 mt-4 me-2">
+      <mat-label>
+        <i class="fas fa-chalkboard-user input-icon animate-ease-0_3"></i>
+        <span style="margin-left: 1rem;">Role</span>
+      </mat-label>
+      <mat-select formControlName="role">
+        <mat-option *ngFor="let item of this.roleList" [value]="item.name"
+          (click)="onChanges(item)">{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="ms-2 me-2">
+      <mat-label>
+        <i class="fas fa-list input-icon animate-ease-0_3"></i>
+        <span style="margin-left: 1rem;">Code</span>
+      </mat-label>
+      <input matInput class="input-2" name="code" formControlName="code" value=codes required>
+    </mat-form-field>
+
+    <mat-form-field class="ms-2 me-2">
+      <mat-label>
+        <i class="fas fa-dollar-sign input-icon animate-ease-0_3"></i>
+        <span style="margin-left: 1rem;">Default Rate</span>
+      </mat-label>
+      <input matInput class="input-2" name="defaultRate" formControlName="defaultRate" required>
+    </mat-form-field>
+
+    <mat-form-field class="ms-2 me-2">
+      <mat-label>
+        <i class="fas fa-dollar-sign input-icon animate-ease-0_3"></i>
+        <span style="margin-left: 1rem;">Assign Rate</span>
+      </mat-label>
+      <input matInput type="number" class="input-2" name="assignRate" formControlName="assignRate" >
+    </mat-form-field>
+
+    <mat-form-field class="ms-2 me-2">
+      <!-- <mat-label>
+        <i class="fa-regular fa-clock input-icon"></i>
+        <span style="margin-left: 1rem;">Hours</span>
+      </mat-label>
+      <mat-select formControlName="hours" class="mat-drop">
+        <mat-option [value]= 8 >8</mat-option>
+        <mat-option [value]= 6 >6</mat-option>
+        <mat-option [value]= 4 >4</mat-option>
+      </mat-select> -->
+      <mat-label>
+        <i class="fa-regular fa-clock input-icon"></i>
+        <span style="margin-left: 1rem;">Hours</span>
+      </mat-label>
+      <input matInput type="number" class="input-2" name="hours" formControlName="hours" required>
+    </mat-form-field>
+
+    <mat-form-field class="ms-2 me-2" >
+      <mat-label>
+        <i class="fas fa-chalkboard-user input-icon animate-ease-0_3"></i>
+        <span style="margin-left: 1rem;">Location</span>
+      </mat-label>
+      <mat-select formControlName="location">
+        <mat-option  *ngFor="let item of this.locationArray" [value]="item.name"
+          >{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <div style="display: flex; justify-content: center;" class="mt-4">
+      <button mat-raised-button class="white-color me-3 mb-3 action-btn"
+        [ngClass]="{'save-btn-1':CapacityUtilizationForm.valid,'disabled':!CapacityUtilizationForm.valid}"
+        (click)="submit('Save')">Save</button>
+      <button mat-raised-button class="white-color me-3 mb-3 action-btn"
+        [ngClass]="{'draft-btn-1':CapacityUtilizationForm.valid,'disabled':!CapacityUtilizationForm.valid}"
+        (click)="submit('Draft')">Draft</button>
+      <button mat-raised-button class="white-color cancel-btn-1 me-2 mb-3 action-btn" (click)="close()">Cancel</button>
+    </div>
+  </form>
+</div>

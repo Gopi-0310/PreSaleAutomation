@@ -1,0 +1,44 @@
+<div class="titile theme-new-1">
+  <!-- <i class="fa-regular fa-circle-check ms-3 p-3 heading-icon"></i> -->
+  <h5 class="mt-2 p-1">Add User and Role</h5>
+  <!-- <i class="fa-solid fa-xmark  me-3 p-3 heading-icon" (click)="close()"></i> -->
+  <i class="fa-regular fa-circle-xmark me-2 p-3 heading-icon" (click)="close()"></i>
+</div>
+<mat-progress-bar mode="indeterminate" class="progress"></mat-progress-bar>
+<div class="container-fluid mt-4 theme-1 theme-new-1">
+  <!--Resource rate card pop-pup Form Start.....................-->
+  <form [formGroup]="teamconfiguration">
+
+    <mat-form-field class="ms-2 mt-4 me-2">
+      <mat-label>
+        <i class="fa-solid fa-users input-icon animate-ease-0_3"></i>
+        <span style="margin-left: 1rem;">User List</span>
+      </mat-label>
+      <mat-select formControlName="name">
+        <mat-option *ngFor="let item of this.userList" [value]="item.id">{{item.userName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="ms-2  me-2">
+      <mat-label>
+        <i class="fas fa-chalkboard-user input-icon animate-ease-0_3"></i>
+        <span style="margin-left: 1rem;">Role List</span>
+      </mat-label>
+      <mat-select formControlName="role">
+        <mat-option *ngFor="let item of this.roleList" [value]="item.id">{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <div style="display: flex; justify-content: center;" class="mt-4">
+      <button mat-raised-button class="white-color me-3 mb-3 action-btn"
+              [ngClass]="{'save-btn-1':teamconfiguration.valid,'disabled':!teamconfiguration.valid}"
+              (click)="submit()">
+        Save
+      </button>
+
+      <button mat-raised-button class="white-color cancel-btn-1 me-2 mb-3 action-btn" (click)="close()">Cancel</button>
+    </div>
+  </form>
+</div>
+

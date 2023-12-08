@@ -1,0 +1,152 @@
+
+<div class="container-fluid theme-1 mt-3">
+
+  <div class="col-md-12 d-inline-block">
+    <span class="proj-title">{{this.project.projectName}}</span>
+    <span class="ms-2">
+      <i class="fa-solid fa-circle fa-xs circle-icon"></i>
+    </span>
+    <span class="weeksNHours ms-2">{{this.totalHoursAndCost.hours}} Hours</span>
+    <span class="ms-2">
+      <i class="fa-solid fa-circle fa-xs circle-icon"></i>
+    </span>
+   <!-- <span class="weeksNHours ms-2">{{this.totalHoursAndCost.rate}} Rate</span> -->
+    <!-- <span class="ms-3">
+      <i class="fa-solid fa-circle fa-xs circle-icon"></i>
+    </span> -->
+    <span class="weeksNHours ms-2">{{this.totalHoursAndCost.week}} Weeks</span>
+    <!--<span class="ms-3">
+      <i class="fa-solid fa-lg fa-arrow-up-right-from-square right-arrow-up"></i>
+    </span>-->
+  </div>
+
+  <div>
+    <button class="back-button mb-3 mt-2" (click)="backClicked()"> <i class="fa-solid fa-arrow-left"></i> Back</button>
+    <button mat-raised-button class="custom-btn-1 float-right mb-3 mx-3">
+      <span class="white-color" (click)="exportLOE()">Export LOE <i class="fa-solid fa-file-excel"></i></span>
+    </button>
+    <button mat-raised-button class="custom-btn-1 float-right mb-3">
+      <span class="white-color" (click)="exportexcel('CostBy Workstream', 'Workstream-table')">Export SOW <i class="fa-solid fa-file-excel"></i></span>
+    </button>
+  </div>
+
+  <mat-accordion class="col-md-12">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Cost By Resource
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <!--Mat table-->
+      <div class=" mat-elevation-z8 hide-scrollbar mt-3">
+
+
+        <table mat-table #MatSort="matSort" [dataSource]="dataSource" matSort>
+
+          <!-- Code -->
+          <ng-container matColumnDef="Code">
+            <th mat-header-cell *matHeaderCellDef class="mat-header-cell">
+              <span mat-sort-header><b>Code</b></span>
+              <i class="fas fa-magnifying-glass fa-xs table-header-icon"></i>
+            </th>
+            <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.code}} </td>
+          </ng-container>
+
+          <!-- Role -->
+          <ng-container matColumnDef="Role">
+            <th mat-header-cell *matHeaderCellDef class="mat-header-cell">
+              <span mat-sort-header><b>Role</b></span>
+              <i class="fas fa-magnifying-glass fa-xs table-header-icon"></i>
+            </th>
+            <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.role}} </td>
+          </ng-container>
+
+          <!-- Hours -->
+          <ng-container matColumnDef="Hour">
+            <th mat-header-cell *matHeaderCellDef class="mat-header-cell">
+              <span mat-sort-header><b>Hours</b></span>
+              <i class="fas fa-magnifying-glass fa-xs table-header-icon"></i>
+            </th>
+            <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.hours}} </td>
+          </ng-container>
+
+          <!-- Days -->
+          <ng-container matColumnDef="Week">
+            <th mat-header-cell *matHeaderCellDef class="mat-header-cell">
+              <span mat-sort-header><b>Days</b></span>
+              <i class="fas fa-magnifying-glass fa-xs table-header-icon"></i>
+            </th>
+            <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.days}} </td>
+          </ng-container>
+
+          <!-- Rate -->
+          <ng-container matColumnDef="Rate">
+            <th mat-header-cell *matHeaderCellDef class="mat-header-cell">
+              <span mat-sort-header><b>Rate</b></span>
+              <i class="fas fa-magnifying-glass fa-xs table-header-icon"></i>
+            </th>
+            <td mat-cell *matCellDef="let row" class="no-wrap"> {{row.rate}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="mat-row-header"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="mat-row pointer ms-2 me-2"
+              (mouseenter)="setHovered(row, true)"
+              (mouseleave)="setHovered(row, false)"></tr>
+        </table>
+
+      </div>
+    </mat-expansion-panel>
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Cost By Workstream
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <!--Mat table-->
+      <div class=" mat-elevation-z8 hide-scrollbar mt-3">
+        <table mat-table #MatSort="matSort" [dataSource]="workStreamList" matSort>
+
+          <!-- Thread -->
+          <ng-container matColumnDef="thread">
+            <th mat-header-cell *matHeaderCellDef class="mat-header-cell">
+              <span mat-sort-header><b>Thread</b></span>
+              <i class="fas fa-magnifying-glass fa-xs table-header-icon"></i>
+            </th>
+            <td mat-cell *matCellDef="let element" class="no-wrap"> {{element.thread}} </td>
+          </ng-container>
+
+          <!-- Hours -->
+          <ng-container matColumnDef="hours">
+            <th mat-header-cell *matHeaderCellDef class="mat-header-cell">
+              <span mat-sort-header><b>Hours</b></span>
+              <i class="fas fa-magnifying-glass fa-xs table-header-icon"></i>
+            </th>
+            <td mat-cell *matCellDef="let element" class="no-wrap"> {{element.hours}} </td>
+          </ng-container>
+
+          <!-- Fees -->
+          <ng-container matColumnDef="fees">
+            <th mat-header-cell *matHeaderCellDef class="mat-header-cell">
+              <span mat-sort-header><b>Fees</b></span>
+              <i class="fas fa-magnifying-glass fa-xs table-header-icon"></i>
+            </th>
+            <td mat-cell *matCellDef="let element" class="no-wrap"> {{element.fees}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns1; sticky: true" class="mat-row-header"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns1;" class="mat-row pointer ms-2 me-2"
+              (mouseenter)="setHovered(row, true)"
+              (mouseleave)="setHovered(row, false)"></tr>
+
+        </table>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+
+
+

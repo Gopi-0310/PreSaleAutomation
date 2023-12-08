@@ -1,0 +1,19 @@
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.icon-tick{
+    text-align:center;
+    font-size:40px;
+    color:forestgreen;
+}
+
+.content-wrapper {
+  padding: 30px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

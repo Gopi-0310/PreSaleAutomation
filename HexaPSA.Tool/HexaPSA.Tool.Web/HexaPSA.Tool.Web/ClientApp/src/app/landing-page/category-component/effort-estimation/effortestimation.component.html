@@ -1,0 +1,322 @@
+
+<div class="container-fluid theme-1 mt-3">
+
+  <div>
+    <span class="proj-title">{{this.project.projectName}}</span>
+    <span class="ms-2">
+      <i class="fa-solid fa-circle fa-xs circle-icon"></i>
+    </span>
+    <span class="weeksNHours ms-2">{{this.totalWeeksAndHours.hours}} Hours</span>
+    <span class="ms-2">
+      <i class="fa-solid fa-circle fa-xs circle-icon"></i>
+    </span>
+    <span class="weeksNHours ms-2">{{this.totalWeeksAndHours.week}} Weeks</span>
+    <!--<span class="ms-3">
+      <i class="fa-solid fa-lg fa-arrow-up-right-from-square right-arrow-up"></i>
+    </span>-->
+  </div>
+
+  <button class="back-button mb-3 mt-2" (click)="backClicked()"> <i class="fa-solid fa-arrow-left"></i> Back</button>
+
+  <!-- Expansion Panel -->
+  <div>
+    <!-- Mat Expansion -->
+    <div class="accordion">
+      <mat-accordion class="">
+        <mat-expansion-panel *ngFor="let item of workstreamData; let firstAcc = first" [expanded]="firstAcc" hideToggle #openAcc>
+          <mat-expansion-panel-header [class]="openAcc.expanded?'mat-expansion-panel-header1':'mat-expansion-panel-header2'">
+            <mat-panel-title [class]="openAcc.expanded?'mat-expansion-panel-header-title2':'mat-expansion-panel-header-title1'">
+              {{item.name}}
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+          <div class="accordion-body">
+            <!-- Accordion  Item starts-->
+            <!--Add Item Start-->
+            <div style="display: flex; justify-content: end; z-index: 9999; position: relative; top: -56px;">
+              <button class="acc-button" (click)="createItem(item)"><i class="add-text fa-solid fa-calendar-plus"></i></button>
+              <button class="acc-button" (click)="deleteWorkstream(item)"><i class="acc-text far fa-trash-can "></i></button>
+            </div>
+            <div attr.id="create{{item.id}}" style="display:none">
+
+              <form [formGroup]="addChildWorkstream" class="container">
+                <div class="acc-details-box mt-4">
+
+                  <div class="input-line hours col-md-3">
+                    <input class="input-2" type="text" formControlName="activity" value="" name="acc-input" required>
+                    <label class="lab-animation animate-ease-0_3 mx-2">
+                      Activity
+                    </label>
+                  </div>
+
+                  <div class="dropdown assignTo mx-2">
+                    <mat-form-field class="add-role ps-2 drop-role">
+                      <mat-select formControlName="roles" id="roles" name="roles" class="drop-role" style="height:31px">
+                        <mat-option *ngFor="let role of roleList"
+                                    [value]="role.role.id">
+                          {{role.role.name}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="input-line hours col-md-2">
+                    <input class="input-2" type="text" required value="40" name="acc-input" formControlName="description">
+                    <label class="lab-animation animate-ease-0_3 mx-2">
+                      Description
+                    </label>
+                  </div>
+
+                  <div class="input-line hours col-md-2">
+                    <input class="input-2" type="number" required value="40" name="acc-input" formControlName="eta">
+                    <label class="lab-animation animate-ease-0_3 mx-2">
+                      Efforts (Hours)
+                    </label>
+                  </div>
+
+                  <div class="dropdown assignTo mx-2 col-md-1">
+                    <mat-form-field class="add-role ps-2 drop-role">
+                      <label>
+                        Week
+                      </label>
+                      <mat-select formControlName="week" id="week" name="week" class="drop-role" style="height:31px">
+                        <mat-option *ngFor="let week of noOfWeeks"
+                                    [value]="week">
+                          {{week}}
+                        </mat-option>
+                      </mat-select>
+
+                    </mat-form-field>
+                  </div>
+
+                  <button mat-raised-button class="button-AddRole mb-3 mx-3 mt-1" style="height: 30px !important; background-color: #00BF96; color: #fff" (click)="save()">Save</button>
+
+                </div>
+              </form>
+            </div>
+            <!--Add Item End-->
+            <!--Binary Tree Start-->
+            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+              <!-- This is the tree node template for leaf nodes -->
+              <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle [style.display]="item.id === node.workStream.id ? 'block' : 'none'">
+                <li class="mat-tree-node mt-4">
+                  <form [formGroup]="addChildWorkstream" class="container">
+                    <div class="acc-details-box">
+
+                      <div class="input-line  col-md-3">
+                        <input class="input-2" type="text" value={{node.activity}}>
+                        <label class="lab-animation animate-ease-0_3 mx-1">
+                          Activity
+                        </label>
+                      </div>
+
+                      <div class="input-line hurs col-md-2">
+                        <input class="input-2" type="text" value={{node.role.name}}>
+                        <label class="lab-animation animate-ease-0_3 mx-1">
+                          Role
+                        </label>
+                      </div>
+
+                      <div class="input-line  col-md-3">
+                        <input class="input-2" type="text" value={{node.description}}>
+                        <label class="lab-animation animate-ease-0_3 mx-1">
+                          Description
+                        </label>
+                      </div>
+
+                      <div class="input-line  col-md-1">
+                        <input class="input-2" type="number" value={{node.hours}}>
+                        <label class="lab-animation animate-ease-0_3 mx-1">
+                          Efforts (Hours)
+                        </label>
+                      </div>
+
+                      <div class="input-line  col-md-1">
+                        <input class="input-2" type="number" value={{node.week}}>
+                        <label class="lab-animation animate-ease-0_3 mx-1">
+                          Week
+                        </label>
+                      </div>
+
+                      <div *ngIf="isVisible" style="position:relative; top:-10px;">
+                        <button mat-icon-button [matMenuTriggerFor]="menu">
+                          <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                          <button mat-menu-item (click)="addWorkstream(node,'add')">Add Child</button>
+                          <button mat-menu-item (click)="remove(node)">Remove</button>
+                        </mat-menu>
+                      </div>
+                      <div attr.id="remove{{node.id}}" style="display:none">
+                        <mat-icon class="remove-icon ms-3" (click)="addWorkstream(node,'remove')">remove_circle</mat-icon>
+                      </div>
+                    </div>
+                    <div attr.id="Location{{node.id}}" style="display:none">
+                      <br />
+                      <form [formGroup]="addChildWorkstream" class="container">
+                        <div class="acc-details-box mt-4">
+
+                          <div class="input-line hours col-md-3">
+                            <input class="input-2" type="text" formControlName="activity" value="" name="acc-input" required>
+                            <label class="lab-animation animate-ease-0_3 mx-2">
+                              Activity
+                            </label>
+                          </div>
+
+                          <div class="dropdown assignTo mx-2">
+                            <mat-form-field class="add-role ps-2 drop-role">
+                              <mat-select formControlName="roles" id="roles" name="roles" class="drop-role" style="height:31px">
+                                <mat-option *ngFor="let role of roleList"
+                                            [value]="role.role.id">
+                                  {{role.role.name}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+
+                          <div class="input-line hours col-md-2">
+                            <input class="input-2" type="text" required value="40" name="acc-input" formControlName="description">
+                            <label class="lab-animation animate-ease-0_3 mx-2">
+                              Description
+                            </label>
+                          </div>
+
+                          <div class="input-line hours col-md-2">
+                            <input class="input-2" type="number" required value="40" name="acc-input" formControlName="eta">
+                            <label class="lab-animation animate-ease-0_3 mx-2">
+                              Efforts (Hours)
+                            </label>
+                          </div>
+
+                          <div class="dropdown assignTo mx-2 col-md-1">
+                            <mat-form-field class="add-role ps-2 drop-role">
+                              <label>
+                                Week
+                              </label>
+                              <mat-select formControlName="week" id="week" name="week" class="drop-role" style="height:31px">
+                                <mat-option *ngFor="let week of noOfWeeks"
+                                            [value]="week">
+                                  {{week}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+
+                          <button mat-raised-button class="button-AddRole mb-3 mx-3 " style="height: 30px !important; background-color: #00BF96; color: #fff" (click)="save()">Save</button>
+
+                        </div>
+                      </form>
+                    </div>
+                  </form>
+                </li>
+              </mat-tree-node>
+
+              <!-- This is the tree node template for expandable nodes -->
+              <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+                <li *ngIf="item.id == node.workStream.id">
+                  <div class="mat-tree-node ms-2 pt-0 mt-3 pb-0">
+                    <div class="input-line hours col-md-3">
+                      <input class="input-2" type="text" required formControlName="activity"
+                             value={{node.activity}} name="acc-input">
+                      <label class="lab-animation animate-ease-0_3 mx-2">
+                        Activity
+                      </label>
+                    </div>
+                    <!--<span class="example-tree-node-name">{{node.activity}}</span>-->
+                    <div *ngIf="isVisible" style="position:relative; top:-3px;">
+                      <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="addWorkstream(node,'add')">Add</button>
+                      </mat-menu>
+                    </div>
+                    <div attr.id="remove{{node.id}}" style="display:none">
+                      <mat-icon class="remove-icon ms-3" (click)="addWorkstream(node,'remove')">remove_circle</mat-icon>
+                    </div>
+                  </div>
+                  <div attr.id="Location{{node.id}}" style="display:none">
+                    <form [formGroup]="addChildWorkstream" class="container">
+                      <div class="acc-details-box mt-4">
+
+                        <div class="input-line hours col-md-3">
+                          <input class="input-2" type="text" formControlName="activity" value={{node.activity}} name="acc-input" required>
+                          <label class="lab-animation animate-ease-0_3 mx-2">
+                            Activity
+                          </label>
+                        </div>
+
+                        <div class="dropdown assignTo mx-2">
+                          <mat-form-field class="add-role ps-2 drop-role">
+                            <mat-select formControlName="roles" id="roles" name="roles" class="drop-role" style="height:31px">
+                              <mat-option *ngFor="let role of roleList"
+                                          [value]="role.id">
+                                {{role.name}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+
+                        <div class="input-line hours col-md-2">
+                          <input class="input-2" type="text" required value="40" name="acc-input" formControlName="description">
+                          <label class="lab-animation animate-ease-0_3 mx-2">
+                            Description
+                          </label>
+                        </div>
+
+                        <div class="input-line hours col-md-2">
+                          <input class="input-2" type="number" required value="40" name="acc-input" formControlName="eta">
+                          <label class="lab-animation animate-ease-0_3 mx-2">
+                            Efforts (Hours)
+                          </label>
+                        </div>
+
+                        <div class="input-line week col-md-2">
+                          <input class="input-2" type="number" required value="WK-1" name="acc-input" formControlName="week">
+                          <label class="lab-animation animate-ease-0_3 mx-2">
+                            Week
+                          </label>
+                        </div>
+
+                        <button mat-raised-button class="button-AddRole mb-3 mx-3 " style="height: 30px !important; background-color: #00BF96; color: #fff" (click)="save()">Save</button>
+
+                      </div>
+                    </form>
+                  </div>
+                  <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+                    <ng-container matTreeNodeOutlet></ng-container>
+                  </ul>
+                </li>
+              </mat-nested-tree-node>
+            </mat-tree>
+
+            <!--Binary Tree End-->
+            <!-- Accordion  Item ends-->
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <!-- Add Workstream - display input -->
+      <div class="custom-expansion-panel-header ps-4 mt-4" *ngIf="enableWorkstreamInput">
+        <form class="add_Workstream w-100" [formGroup]="WorkStreamForm">
+          <div class="input-line">
+            <input class="input-1" type="text" #workstreamRef formControlName="workstream" placeholder="Type to add workstream" required>
+            <label class="animate-ease-0_3">
+            </label>
+          </div>
+          <button class="icon-btn-square color-5 custom-btn-1 col-md-1 mx-1 my-2 p-2"
+                  [hidden]="WorkStreamForm.invalid"
+                  (click)="addWorkstreamInput()">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Add/Cancel Workstream Button -->
+    <button class="accordion-btn w-100 no_border_outline mt-1" (click)="add_cancel_Workstream()">
+      <i [class]="{'addAnimation': enableWorkstreamInput, 'cancelAnimation': !enableWorkstreamInput}"
+         class="fa-solid fa-plus fa-lg me-2 accordion-btn-text"></i>
+      <span *ngIf="!enableWorkstreamInput" class="accordion-btn-text">Add Workstream</span>
+      <span *ngIf=" enableWorkstreamInput" class="accordion-btn-text">Cancel Workstream</span>
+    </button>
+  </div>
+</div>

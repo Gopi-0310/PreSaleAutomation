@@ -1,0 +1,645 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "resourceRateCard": [
+    {
+      "code": "AC-01",
+      "role": "Solution Architect",
+      "rate": "8lacks",
+      "id": 1
+    },
+    {
+      "code": "PM-02",
+      "role": "Project Manager",
+      "rate": "6lacks",
+      "id": 2
+    },
+    {
+      "code": "SD-03",
+      "role": "Software developer",
+      "rate": "5lacks",
+      "id": 3
+    },
+    {
+      "code": "JD-04",
+      "role": "Junior Developer",
+      "rate": "3lacks",
+      "id": 4
+    },
+    {
+      "code": "ST-05",
+      "role": "SoftWare Testing",
+      "rate": "2lacks",
+      "id": 5
+    },
+    {
+      "code": "SM-06",
+      "role": "Scrum Master",
+      "rate": "1lacks",
+      "id": 6
+    },
+    {
+      "code": "DE-07",
+      "role": "Data Engineer",
+      "rate": "10lacks",
+      "id": 7
+    },
+    {
+      "code": "DS-08",
+      "role": "Data Science",
+      "rate": "20lacks",
+      "id": 8
+    },
+    {
+      "code": "CM-09",
+      "role": "Cloud Modulation",
+      "rate": "10lacks",
+      "id": 9
+    },
+    {
+      "code": "HRS-10",
+      "role": "Human Resource",
+      "rate": "7lacks",
+      "id": 10
+    }
+  ],
+  "estimationDashboard": [
+    {
+      "projectName": "Presale Automation",
+      "projectType": "LOE",
+      "technology": [
+        "Angular",
+        ".net"
+      ],
+      "startDate": "2023-09-14T05:30:00.000Z",
+      "endDate": "2023-09-29T05:30:00.000Z",
+      "progress": "33% Completed",
+      "status": "In-Progress",
+      "addEstimate": [
+        {
+          "userName": "Gopi",
+          "roles": "QA"
+        },
+        {
+          "userName": "Renith",
+          "roles": "SM"
+        },
+        {
+          "userName": "Renith",
+          "roles": "Full Stack Developer"
+        }
+      ],
+      "id": "B85E7224-1883-46F0-973F-131A55DA9517"
+    },
+    {
+      "projectName": "Play-Off",
+      "projectType": "Sow",
+      "technology": [
+        "Java",
+        "Angular"
+      ],
+      "startDate": "2023-09-28T00:00:00.000Z",
+      "endDate": "2023-09-30T00:00:00.000Z",
+      "progress": "100% Completed",
+      "status": "Completed",
+      "addEstimate": [
+        {
+          "userName": "Gopi",
+          "roles": "QA"
+        },
+        {
+          "userName": "Renith",
+          "roles": "SM"
+        }
+      ],
+      "id": "CED105B8-CB03-499C-A792-FD161476EA7D"
+    },
+    {
+      "projectName": "Holy Name",
+      "projectType": "Sow",
+      "technology": [
+        "Java",
+        "Angular"
+      ],
+      "startDate": "2023-09-28T00:00:00.000Z",
+      "endDate": "2023-09-30T00:00:00.000Z",
+      "progress": "66% Completed",
+      "status": "To-do",
+      "addEstimate": [
+        {
+          "userName": "Gopi",
+          "roles": "QA"
+        },
+        {
+          "userName": "Renith",
+          "roles": "SM"
+        }
+      ],
+      "id": "7545AE2F-E589-46C3-AB64-6AACBD985DEE"
+    },
+    {
+      "projectName": "Englewood",
+      "projectType": "Sow",
+      "technology": [
+        "Java",
+        "Angular"
+      ],
+      "startDate": "2023-09-28T00:00:00.000Z",
+      "endDate": "2023-09-30T00:00:00.000Z",
+      "progress": "33% Completed",
+      "status": "In-Progress",
+      "addEstimate": [
+        {
+          "userName": "Gopi",
+          "roles": "QA"
+        },
+        {
+          "userName": "Renith",
+          "roles": "SM"
+        }
+      ],
+      "id": ""
+    },
+    {
+      "projectName": "PFPS",
+      "projectType": "Sow",
+      "technology": [
+        "Java",
+        "Angular"
+      ],
+      "startDate": "2023-09-28T00:00:00.000Z",
+      "endDate": "2023-09-30T00:00:00.000Z",
+      "progress": "33% Completed",
+      "status": "On-Hold",
+      "addEstimate": [
+        {
+          "userName": "Gopi",
+          "roles": "QA"
+        },
+        {
+          "userName": "Renith",
+          "roles": "SM"
+        }
+      ],
+      "id": "5786276F-BC48-483E-952B-D6FC78829088"
+    },
+    {
+      "projectName": "EHPN",
+      "projectType": "Sow",
+      "technology": [
+        "Java",
+        "Angular"
+      ],
+      "startDate": "2023-09-28T00:00:00.000Z",
+      "endDate": "2023-09-30T00:00:00.000Z",
+      "progress": "33% Completed",
+      "status": "Completed",
+      "addEstimate": [
+        {
+          "userName": "Gopi",
+          "roles": "QA"
+        },
+        {
+          "userName": "Renith",
+          "roles": "SM"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "projectName": "EHPN",
+      "projectType": "Sow",
+      "technology": [
+        "Java",
+        "Angular"
+      ],
+      "startDate": "2023-09-28T00:00:00.000Z",
+      "endDate": "2023-09-30T00:00:00.000Z",
+      "progress": "33% Completed",
+      "status": "To-do",
+      "addEstimate": [
+        {
+          "userName": "Gopi",
+          "roles": "QA"
+        },
+        {
+          "userName": "Renith",
+          "roles": "SM"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "projectName": "EHPN",
+      "projectType": "Sow",
+      "technology": [
+        "Java",
+        "Angular"
+      ],
+      "startDate": "2023-09-28T00:00:00.000Z",
+      "endDate": "2023-09-30T00:00:00.000Z",
+      "progress": "33% Completed",
+      "status": "To-do",
+      "addEstimate": [
+        {
+          "userName": "Gopi",
+          "roles": "QA"
+        },
+        {
+          "userName": "Renith",
+          "roles": "SM"
+        }
+      ],
+      "id": 8
+    },
+    {
+      "projectName": "EHPN",
+      "projectType": "Sow",
+      "technology": [
+        "Java",
+        "Angular"
+      ],
+      "startDate": "2023-09-28T00:00:00.000Z",
+      "endDate": "2023-09-30T00:00:00.000Z",
+      "progress": "33% Completed",
+      "status": "In-Progress",
+      "addEstimate": [
+        {
+          "userName": "Gopi",
+          "roles": "QA"
+        },
+        {
+          "userName": "Renith",
+          "roles": "SM"
+        }
+      ],
+      "id": 9
+    }
+  ],
+  "landing": [
+    {
+      "id": 1,
+      "icon": "fa-solid fa-hourglass-end info-icon",
+      "detail": "Capacity Utilization",
+      "url": "capacityutilization"
+    },
+    {
+      "id": 2,
+      "icon": "fa-solid fa-stopwatch info-icon",
+      "detail": "Effort Estimation Module",
+      "url": "effortestimation"
+    },
+    {
+      "id": 3,
+      "icon": "fa-solid fa-file-word info-icon",
+      "detail": "Create Statement of Work",
+      "url": "createsow"
+    },
+    {
+      "id": 4,
+      "icon": "fa-sharp fa-solid fa-file-export info-icon",
+      "detail": "View & Export Artifacts",
+      "url": "viewexport"
+    },
+    {
+      "id": 5,
+      "icon": "fa-solid fa-calendar-days info-icon",
+      "detail": "Presale Time Tracker",
+      "url": "timetracker"
+    },
+    {
+      "id": 6,
+      "icon": "far fa-id-card info-icon",
+      "detail": "Team Configuration",
+      "url": "teamconfiguration"
+    }
+  ],
+  "CapacityUtilization": [
+    {
+      "role": "Full stack Developer",
+      "hours": "4",
+      "defaultrate": "8$",
+      "customrate": "4$",
+      "id": 1
+    },
+    {
+      "role": "Testing",
+      "hours": "8",
+      "customrate": "4$",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "role": "Solution Architect",
+      "customrate": "5$",
+      "hours": "7"
+    },
+    {
+      "id": 4,
+      "role": "Software developer",
+      "customrate": "3$",
+      "hours": "4"
+    },
+    {
+      "role": "Testing123",
+      "customrate": "9$",
+      "hours": "5",
+      "id": 5
+    },
+    {
+      "role": "UI/UX designer",
+      "hours": "4",
+      "defaultrate": "18$",
+      "customrate": "18$",
+      "id": 6
+    },
+    {
+      "role": "BI",
+      "hours": "8",
+      "defaultrate": "20$",
+      "customrate": "89$",
+      "id": 7
+    },
+    {
+      "role": "UI/UX designer",
+      "hours": "9",
+      "defaultrate": "18$",
+      "customrate": "12$",
+      "id": 8
+    }
+  ],
+  "teamconfiguration": [
+    {
+      "id": 1,
+      "role": "Full stack Developer12",
+      "name": "Gobi"
+    },
+    {
+      "id": 2,
+      "name": "Renith",
+      "role": "Full stack Developer"
+    },
+    {
+      "id": 3,
+      "name": "Kamal",
+      "role": "Scrum Master"
+    },
+    {
+      "role": "Software Developers",
+      "name": "Kavin",
+      "id": 4
+    }
+  ],
+  "Workstream": [
+    {
+      "workstream": "Migration Planning",
+      "hours": "120",
+      "weeks": "3",
+      "id": 1
+    },
+    {
+      "workstream": "Requirement Analysis",
+      "hours": "40",
+      "weeks": "1",
+      "id": 2
+    },
+    {
+      "workstream": "Architecture Design",
+      "hours": "200",
+      "weeks": "5",
+      "id": 3
+    }
+  ],
+  "CostByWorkstream": [
+    {
+      "id": 1,
+      "thread": "OnBoarding",
+      "hours": 18,
+      "fees": "1$"
+    },
+    {
+      "id": 2,
+      "thread": "Assessment Planning",
+      "hours": 12,
+      "fees": "14$"
+    },
+    {
+      "id": 3,
+      "thread": "Initial Setup",
+      "hours": 18,
+      "fees": "11$"
+    },
+    {
+      "id": 4,
+      "thread": "UI/UX Planning",
+      "hours": 13,
+      "fees": "12$"
+    }
+  ],
+  "CostByResource": [
+    {
+      "id": 1,
+      "Code": "ARC-O",
+      "Role": "Solution Architect",
+      "Hours": 150,
+      "Days": 18.75,
+      "Location": "Offshore",
+      "Rate": "1$"
+    },
+    {
+      "id": 2,
+      "Code": "ARC-qO",
+      "Role": "Solution Architect",
+      "Hours": 150,
+      "Days": 18.75,
+      "Location": "Offshore",
+      "Rate": "1$"
+    },
+    {
+      "id": 3,
+      "Code": "ARC-1O",
+      "Role": "Solution Architect",
+      "Hours": 150,
+      "Days": 18.75,
+      "Location": "Offshore",
+      "Rate": "1$"
+    },
+    {
+      "id": 4,
+      "Code": "ARC-3O",
+      "Role": "Solution Architect",
+      "Hours": 150,
+      "Days": 18.75,
+      "Location": "Offshore",
+      "Rate": "1$"
+    }
+  ],
+  "roleList": [
+    {
+      "id": 1,
+      "name": "Full stack Developer",
+      "defaultrate": "8$",
+      "customerate": ""
+    },
+    {
+      "id": 2,
+      "name": "Testing",
+      "defaultrate": "8$",
+      "customerate": ""
+    },
+    {
+      "id": 3,
+      "name": "Solution Architect",
+      "defaultrate": "9$",
+      "customerate": ""
+    },
+    {
+      "id": 4,
+      "name": "Software developer",
+      "defaultrate": "10$",
+      "customerate": ""
+    },
+    {
+      "id": 5,
+      "name": "UI/UX designer",
+      "defaultrate": "18$",
+      "customerate": ""
+    },
+    {
+      "id": 6,
+      "name": "BI",
+      "defaultrate": "20$",
+      "customerate": ""
+    }
+  ],
+  "workstreamchild": [
+    {
+      "id": 1,
+      "activity": "Migration Planning",
+      "parentId": 0,
+      "eta": 2,
+      "weeks": "2 weeks",
+      "roles": "PM-1"
+    },
+    {
+      "id": 2,
+      "activity": "Balaji",
+      "parentId": 0,
+      "eta": 2,
+      "roles": "PM-1",
+      "weeks": "2 weeks"
+    },
+    {
+      "id": 5,
+      "activity": "Requirement Analysis",
+      "parentId": 0,
+      "eta": 2,
+      "weeks": "2 weeks",
+      "roles": "ARC-O",
+      "children": [
+        {
+          "id": 2,
+          "activity": "Balaji",
+          "parentId": 0,
+          "eta": 2,
+          "roles": "PM-1",
+          "weeks": "2 weeks"
+        }
+      ]
+    }
+  ],
+  "timetracker": [
+    {
+      "name": "Gobi",
+      "activity": "Full stack Developer new",
+      "description": "description",
+      "hours": 15,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Renith",
+      "activity": "Full stack Developer",
+      "description": "description",
+      "hours": 15
+    },
+    {
+      "id": 3,
+      "name": "Kamal",
+      "activity": "Scrum Master",
+      "description": "description",
+      "hours": 15
+    },
+    {
+      "activity": "Software Developers",
+      "name": "Kavin",
+      "id": 4,
+      "description": "description",
+      "hours": 15
+    }
+  ],
+  "pieChartData": [
+    {
+      "id": 1,
+      "project": "PreSalesAutomation",
+      "hours": 100
+    },
+    {
+      "id": 2,
+      "project": "EngleWood",
+      "hours": 150
+    },
+    {
+      "id": 3,
+      "project": "HNMC",
+      "hours": 200
+    },
+    {
+      "id": 4,
+      "project": "Lexciti",
+      "hours": 250
+    },
+    {
+      "id": 5,
+      "project": "PSTA",
+      "hours": 100
+    }
+  ],
+  "ganttChartData": [
+    {
+      "id": 1,
+      "project": "PreSalesAutomation",
+      "startDate": "2023-10-11",
+      "endDate": "2023-11-11"
+    },
+    {
+      "id": 2,
+      "project": "EngleWood",
+      "startDate": "2023-11-11",
+      "endDate": "2023-11-21"
+    },
+    {
+      "id": 3,
+      "project": "HNMC",
+      "startDate": "2023-11-21",
+      "endDate": "2023-12-11"
+    },
+    {
+      "id": 4,
+      "project": "Lexciti",
+      "startDate": "2023-12-11",
+      "endDate": "2023-12-31"
+    },
+    {
+      "id": 5,
+      "project": "PSTA",
+      "startDate": "2024-01-01",
+      "endDate": "2024-01-11"
+    }
+  ]
+}

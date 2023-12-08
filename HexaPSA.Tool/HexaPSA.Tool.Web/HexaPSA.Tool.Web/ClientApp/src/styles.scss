@@ -1,0 +1,506 @@
+/* You can add global styles to this file, and also import other style files */
+/*Google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import 'ngx-toastr/toastr'; /* 51a351 */
+.toast-success  { background-color: #3db93d !important; }
+.toast-info     { background-color: #1bbae6 !important; }
+.toast-warning  { background-color: #f99406 !important; }
+.toast-error    { background-color: #bc382e !important; }
+*{ 
+    font-family: 'Quicksand', sans-serif; font-size: 14px;
+}
+
+/* Color Format */
+.white-color { color: white !important;}
+
+
+/* start the application theme........................................................................*/
+// Theme New
+.color-completed    { color: #39DC1E ;}
+.color-in-progress  { color: #1E98DC ;}
+.color-on-hold      { color: #FFA500 ;}
+.color-to-do        { color: #FF6347 ;}
+.color-white        { color: #FFFFFF ;}
+//Background color
+.color-completed-bg    { background-color: #39DC1E ;}
+.color-in-progress-bg  { background-color: #1E98DC ;}
+.color-on-hold-bg      { background-color: #FFA500 ;}
+.color-to-do-bg        { background-color: #FF6347 ;}
+:root .theme-new-1{
+    --color-primary         : #00BF96;
+    --color-secondary       : #17494D;
+    --color-light           : #FFFFFF;
+    --color-dark            : #000000;
+    --color-text-primary    : #A5A5A5;
+    --color-text-secondary  : #7A7A7A;
+    --color-bg              : #F5F5F5;
+    --color-row             : #e3f0ed;
+    --color-disable         : #d5f0ea;
+    --color-light-draft     : #bfd8d3;
+}
+//To-do //Dark theme
+// --color-light        : #212529
+// --color-dark         : #FFFFFF
+// --color-bg           : #2B3035
+// --color-text-primary : #686868
+
+/* Button --------------------------------------- Start*/
+.button-primary {
+    border           : none;
+    padding          : 8px 14px;
+    border-radius    : 6px !important; 
+}
+.bg-color-primary   { background-color: var(--color-primary)    ;}
+.bg-color-secondary { background-color: var(--color-secondary)  ;}
+/* Button --------------------------------------- End */
+/* Common --------------------------------------- Start */
+.visible            { opacity: 1  ; }
+.partially-visible  { opacity: .3 ; }
+.hide               { opacity: 0  ; }
+.pointer            { cursor: pointer;}
+.no-wrap { 
+    white-space: nowrap; 
+    overflow: hidden;    
+    text-overflow: ellipsis; 
+}
+.heading-text-grid { 
+    font-size: 16px ;
+    font-weight: bold;
+    color: var(--color-secondary);
+    border-bottom: 3px solid var(--color-secondary);
+}
+.heading-text-grid span {
+    font-size: inherit; //span element takes font-size from its parent
+}
+.custom-breadcrumb {
+    color: var(--color-text-primary);
+}
+.breadcrumb-text:hover {
+    color: var(--color-primary);
+    cursor: pointer;
+}
+.breadcrumb-selected {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+/* Common --------------------------------------- End */
+/* Text Input  ---------------------------------- Start */
+.input-line {                       
+    height: 30px;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.input-line input {                          
+    height: 100%;
+    width: 100%;
+    border:none;
+    border-bottom : 2px solid var(--color-text-primary);
+    transition: 0.7s all;
+    background-color: transparent;
+}
+.input-line label {                
+    position: absolute;
+    bottom:7px;
+    left: 0;
+    color: var(--color-14);
+    pointer-events: none;
+}
+.input-line input:focus { 
+    outline: none;
+    border-bottom : 2px dashed var(--color-secondary);    
+ }
+.input-line input:valid:not(:focus) { 
+    box-shadow: 0px 9px 10px -9px var(--color-primary);
+}
+
+.input-line input:focus ~ label{ color: var(--color-primary); }
+/* Input Type - 1 */
+.input-1:focus ~ label,
+.input-1:valid ~ label {
+    // transform: translate(-22px,-20px);
+    position: absolute;
+    left: 0;
+    scale: 0.75;
+}
+/* Input Type - 2 */
+.input-2:focus ~ label,
+.input-2:valid ~ label {
+    // transform: translate(-33px,-20px);
+    bottom: 23px;
+    transform: scale(0.8);
+    left: -8px;
+    transform-origin: left;
+}
+.input-2:valid ~ label .input-icon,
+.input-2:focus ~ label .input-icon {
+    opacity: 0;
+}
+
+.mdc-button--raised{
+ padding: 0 13px 0 13px;
+ font-size: 10px;
+}
+/* Text Input  ---------------------------------- End */
+/* Icons  --------------------------------------- Start */
+.edit-delete-icon {
+    color:  var(--color-text-secondary);
+}
+.edit-delete-icon:hover {
+    opacity: 1;
+}
+.edit-icon:hover    { color : var(--color-primary);}
+.delete-icon:hover  { color : var(--color-secondary);}
+
+/* Icons  --------------------------------------- End */
+/* Table  --------------------------------------- Start */
+.mat-row {
+    transition: scale .2s;
+}
+.mat-row:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    scale: 1.01;
+    background-color: var(--color-row);
+}
+/* Table  --------------------------------------- End */
+/* Custom Scrollbar  --------------------------------------- Start */
+/* width */
+::-webkit-scrollbar { width: 5px; height: 5px;}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--color-text-primary);
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+/* Custom Scrollbar  --------------------------------------- End */
+
+/* Theme 1 */
+:root .theme-1 {
+  // --color-1   : #805efd;                      //Primary
+  --color-1: #805efd; //Primary
+  --color-2: #281d6e; //Secondary
+  --color-3: #ced9da; //Hover
+  --color-4: #DCD9FF;
+  --color-5: #FFFFFF; //White
+  --color-6: rgba(255, 255, 255, 0.35);
+  --color-7: #33ac37; //Edit
+  --color-8: #E84F4F; //Delete
+  --color-9: #B0AAFF;
+  --color-10: #000000;
+  --color-11: #4a2cb6;
+  --color-12: rgba(239, 224, 255, 0.637); //wave
+  --color-13: #424242; //Text Color
+  --color-14: #a5a5a5; //Icon color
+  --shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --shadow-2: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+/* Theme 2 */
+:root .theme-2 {
+  --color-1: #00BF96;
+  --color-2: #004637;
+  --color-3: #ced9da;
+  --color-4: #e1ffd9;
+  --color-5: #FFFFFF;
+  --color-6: rgba(85, 100, 94, 0.38);
+  --color-7: #4FE855;
+  --color-8: #E84F4F;
+  --color-9: #aae0ff;
+  --shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --shadow-2: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+/* Theme 3 */
+:root .theme-3{
+    --color-1: #8373f0  ;
+    --color-2: #1f2358   ;
+    --color-3: rgba(67, 0, 80, 0.3);
+    --color-4: #e1ffd9;
+    --color-5: #FFFFFF;
+    --color-6: rgba(85, 100, 94, 0.38);
+    --color-7: #4FE855;
+    --color-8: #E84F4F;
+    --color-9: #aae0ff;
+    --color-10: #f76ec6;
+    --shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    --shadow-2: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+
+}
+/* Theme 4 */
+:root .theme-4{
+    --color-1: #57619a  ;
+    --color-2: #1f2358   ;
+    --color-3: rgba(67, 0, 80, 0.3);
+    --color-4: #e1ffd9;
+    --color-5: #FFFFFF;
+    --color-6: rgba(85, 100, 94, 0.38);
+    --color-7: #4FE855;
+    --color-8: #E84F4F;
+    --color-9: #aae0ff;
+    --shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    --shadow-2: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+}
+
+/* End of Theme ................................................................................*/
+
+
+/* Common For Across the Application Start...........................................................*/
+
+.float-right            { float      : right ; }
+.center-align           { text-align : center;}
+.relative-position      { position   : relative;}
+.absolute-position      { position   : absolute;}
+.animate-ease-0_3       { transition : all 0.3s  ease ; }
+.animate-ease-in-out-1  { transition : all 1s    ease-in-out ; }
+.no_border_outline      { outline: none; border: none;}
+
+.grid-center { display: grid; place-items: center;}
+
+.flex-center {
+    display         : flex;
+    align-items     : center;
+    justify-content : space-between;
+}
+.icon-btn-square {
+    border: none;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+.color-5 {color: var(--color-5);}
+.bg-color-1 { background-color: var(--color-1) !important; }
+.bg-color-2 { background-color: var(--color-2) !important; }
+.bg-color-4 { background-color: var(--color-4) !important; }
+.custom-btn-1,
+.save-btn-1,
+.draft-btn-1,
+.cancel-btn-1{
+    border           : none;
+    padding          : 8px 14px;
+    border-radius    : 2px !important; 
+}
+.custom-btn-1 { background-color : var(--color-1) !important;}
+.save-btn-1 { background-color : var(--color-primary) !important;}
+.draft-btn-1 { background-color : var(--color-light-draft) !important;}
+.cancel-btn-1 { background-color : var(--color-secondary) !important;}
+.custom-btn-1:hover span { color: var(--color-1) !important; }
+
+.custom-btn-1:hover,
+.save-btn-1:hover,
+.draft-btn-1:hover,
+.cancel-btn-1:hover {
+    outline: 2px solid var(--color-secondary) !important;
+    background-color: var(--color-5) !important;
+    color: var(--color-secondary) !important;
+    font-weight: 500;
+}
+.disabled{
+    background-color: var(--color-disable) !important;
+    color: var(--color-text-primary) !important;
+}
+
+.accordion-btn {
+  text-align: start;
+  border-radius: 0;
+  padding: 14px 25px;
+  transition: all .5s;
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  background-color: var(--color-5);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.accordion-btn:hover {
+  color: var(--color-5);
+  background-color: var(--color-secondary);
+}
+.accordion-btn-text {
+    font-size       : 1.3rem;
+    font-weight     : bold;
+}
+/* End of the Common For Across the application..................................................*/
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* edit and delete common btn ..............*/
+.edit-icon1, .delete-icon1 {
+    color: var(--color-6);
+    cursor: pointer;
+}
+.edit-icon2, .delete-icon2 {
+    color: var(--color-11);
+    cursor: pointer;
+}
+.edit-icon1:hover,
+.edit-icon2:hover {
+    color: var(--color-7)
+}
+.delete-icon1:hover,
+.delete-icon2:hover {
+    color: var(--color-8)
+}
+/* End Btn .......................*/
+
+/*mat accordion Start ..........................................*/
+.mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 8px;
+  }
+.caret-icon { rotate: 180deg ; }
+.mat-expansion-panel-header,
+.custom-expansion-panel-header {
+    border-bottom : 2px solid var(--color-2) !important;
+    height: 4rem;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+/*.mat-expansion-panel {
+    border-radius : 0  !important;
+}*/
+.mat-expansion-panel-header1 {
+  background-color: var(--color-secondary) !important;
+}
+.mat-expansion-panel-header2{
+    background-color : var(--color-5) !important;
+ }
+.mat-expansion-panel-header:hover
+{
+    background-color : var(--color-3) !important;
+    border-bottom    : 2px solid var(--color-2)!important;
+}
+.mat-expansion-panel-header-title1 {
+  color: var(--color-secondary) !important;
+}
+ .mat-expansion-panel-header-title2{
+    color : var(--color-5) !important; 
+ }
+ .mat-expansion-panel-header-title{
+    font-size   : 1.3rem;
+    font-weight : bold;
+ }
+
+ /*Accordin body content ..................*/
+.acc-body{
+    display                : grid;
+    grid-template-columns  : repeat(auto-fit,235px);
+    justify-content        : space-around;
+}
+/* Input Type start.....................................*/
+// .input-line {                       
+//     height: 30px;
+//     position: relative;
+//     margin-top: 20px;
+//     margin-bottom: 5px;
+// }
+// .input-line input {                          
+//     height: 100%;
+//     width: 100%;
+//     border:none;
+//     border-bottom : 2px solid var(--color-14);
+//     transition: 0.7s all;
+//     background-color: transparent;
+// }
+// .input-line label {                
+//     position: absolute;
+//     bottom:7px;
+//     left: 0;
+//     color: var(--color-14);
+//     pointer-events: none;
+// }
+// .input-line input:focus { 
+//     outline: none;
+//     border-bottom : 2px dashed var(--color-2);    
+//  }
+// .input-line input:valid:not(:focus) { 
+//     box-shadow: 0px 9px 10px -9px var(--color-1);
+// }
+
+// .input-line input:focus ~ label{ color: var(--color-1); }
+// /* Input Type - 1 */
+// .input-1:focus ~ label,
+// .input-1:valid ~ label {
+//     transform: translate(-22px,-20px);
+//     // transform: translate(-7px,-20px);
+//     scale: 0.75;
+// }
+// /* Input Type - 2 */
+// .input-2:focus ~ label,
+// .input-2:valid ~ label {
+//     transform: translate(-33px,-20px);
+//     scale: 0.75;
+// }
+// .input-2:valid ~ label .input-icon,
+// .input-2:focus ~ label .input-icon {
+//     opacity: 0;
+// }
+
+// .mdc-button--raised{
+//  padding: 0 13px 0 13px;
+//  font-size: 10px;
+// }
+/* /////// Input Type End.....................................*/
+
+.mdc-dialog__container {
+  height: auto !important;
+}
+
+mdc-text-field--filled .mdc-line-ripple {
+  border-bottom-width: 0px !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple {
+  border-bottom-width: 0px !important;
+  border-bottom-color: #fff !important;
+}
+
+.mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper {
+  cursor: pointer;
+  background-color: transparent;
+  box-shadow: rgba(74, 39, 155, 0.3) 0px 1px 2px 0px, rgba(56, 27, 138, 0.15) 0px 2px 6px 2px;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent;
+  box-shadow: rgba(74, 39, 155, 0.3) 0px 1px 2px 0px, rgba(56, 27, 138, 0.15) 0px 2px 6px 2px;
+}
+
+.mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+  /*padding-top: 8px;*/
+  padding-bottom: 16px;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+  border-bottom-color:#fff !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+  border-bottom-color: #fff !important;
+}
+/*
+.mat-expansion-panel-body {
+  padding: 0 24px 16px;
+  overflow: scroll !important;
+}
+*/
+
+.mat-expansion-panel-body {
+  padding: 0px;
+}
+
+.back-button {
+  background-color: var(--color-primary);
+  border-radius: 6px;
+  border: none;
+  color: var(--color-light);
+  padding: 5px;
+}
+
+

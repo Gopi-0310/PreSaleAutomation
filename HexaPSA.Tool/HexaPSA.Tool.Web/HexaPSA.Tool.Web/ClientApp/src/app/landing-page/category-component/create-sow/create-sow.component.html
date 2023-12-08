@@ -1,0 +1,30 @@
+<!-- <app-breadcrumbs></app-breadcrumbs> -->
+<div class="theme-1 container-fluid">
+  <button class="back-button mt-2" (click)="backClicked()"> <i class="fa-solid fa-arrow-left"></i> Back</button>
+  <div class="mt-3">
+    <mat-accordion cdkDropList (cdkDropListDropped)="dragNDrop($event)">
+      <div class="drag-boundary pb-5">
+        <!--Empty div for spacing-->
+        <div class="mat-panel-content mt-2" *ngFor="let item of workstreamData; let firstAcc = first" cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".drag-boundary">
+          <div class="drag-icon me-3" cdkDragHandle>
+            <i class="fa-solid fa-grip-vertical fa-xl"></i>
+          </div>
+          <mat-expansion-panel [expanded]="firstAcc" hideToggle #openAcc>
+            <mat-expansion-panel-header [class]="openAcc.expanded?'mat-expansion-panel-header1':'mat-expansion-panel-header2'">
+              <mat-panel-title [class]="openAcc.expanded?'mat-expansion-panel-header-title2':'mat-expansion-panel-header-title1'">
+                {{item}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>This is the primary content of the panel.</p>
+          </mat-expansion-panel>
+        </div>
+        <!-- <form [formGroup]="WorkstreamForm">
+            <input type="text" formControlName = "workstream">
+        </form> -->
+        <button class="accordion-btn ms-25px w-97 no_border_outline mt-1" (click)="add_SOW()">
+          <i class="fa-solid fa-square-plus fa-lg me-2"></i> Add Statement of Work
+        </button>
+      </div>
+    </mat-accordion>
+  </div>
+</div>

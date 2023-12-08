@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>HexaPSA.Tool.API.xml</DocumentationFile>
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.1" />
+    <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HexaPSA.Tool.Application\HexaPSA.Tool.Application.csproj" />
+    <ProjectReference Include="..\HexaPSA.Tool.Export\HexaPSA.Tool.Export.csproj" />
+    <ProjectReference Include="..\HexaPSA.Tool.Notifications\HexaPSA.Tool.Notifications.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,34 @@
+<!-- Navbar -->
+<nav class="topnav flex-center theme-new-1">
+    <img src="../../../../assets/logo.png" height="35" alt="HexaCorp logo">
+    <span class="float-right">
+      <!-- Presales Time Tracker -->
+      <button *ngIf="this.heading == 'Estimation Dashboard'" routerLink="landing/timetracker" routerLinkActive="active" title="Presales Time Tracker"
+              class="button-primary bg-color-primary animate-button">
+        <span class="color-white">
+          <i class="animate-icon fa-xl fa-solid fa-stopwatch"></i>
+          <!-- <span class="ms-2 animate-text">Presales Time tracker</span> -->
+        </span>
+      </button>
+      <button class="ms-3 button-primary bg-color-primary animate-button" [routerLink]="this.heading == 'Estimation Dashboard'?'resource':''" title="Resource Rate Card" routerLinkActive="active">
+        <!-- Resource Rate Card -->
+        <span class="color-white" *ngIf="this.heading == 'Estimation Dashboard'">
+          <!-- <span class="animate-text">Resource_Rate</span> -->
+          <i class="animate-icon fa-lg fas fa-dollar-sign"></i>
+        </span>
+        <!-- Home Button -->
+        <span class="color-white" *ngIf="this.heading != 'Estimation Dashboard'">
+          <i class="fas fa-house"></i>
+        </span>
+      </button>
+
+      <button *ngIf="this.heading == 'Estimation Dashboard'" mat-button [matMenuTriggerFor]="menu" class="ms-3 mb-1 button-primary  bg-color-primary animate-button"><i class=" animate-icon  fa-sharp fa-solid fa-gear mt-1" style="color:#fff; font-size:18px"></i></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item><a [routerLink]="['/user']" class="list-mat-menu "><i class="fa-solid fa-user-tie animate-ease-0_3 mx-1"></i>Users</a></button>
+        <button mat-menu-item><a [routerLink]="['/role']" class="list-mat-menu "><i class="fas fa-chalkboard-user input-icon animate-ease-0_3 mx-1"></i>Roles</a></button>
+        <button mat-menu-item><a [routerLink]="['/project-type']" class="list-mat-menu "><i class="fa-solid fa-laptop-file input-icon animate-ease-0_3 mx-1"></i>Project Type</a></button>
+        <button mat-menu-item><a [routerLink]="['/technology']" class="list-mat-menu "><i class="fa-solid fa-microchip input-icon animate-ease-0_3 mx-1"></i>Techology</a></button>
+      </mat-menu>
+
+    </span>
+</nav>
